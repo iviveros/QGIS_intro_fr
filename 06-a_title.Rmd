@@ -1,0 +1,7 @@
+# A tittle
+
+Example of inserting images:
+
+```{r, fig.cap='An example of plot', echo=FALSE}
+knitr::include_graphics('figures/figure_example.PNG')
+```
