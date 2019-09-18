@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>QGIS</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="QGIS" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="QGIS" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Ivan Viveros Santos">
+
+
+<meta name="date" content="2019-09-18">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="installation.html">
+<link rel="next" href="data-treatment.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">QGIS 101</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> QGIS installation and Graphical User Interface</a><ul>
+<li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#qgis-installation"><i class="fa fa-check"></i><b>2.1</b> QGIS installation</a></li>
+<li class="chapter" data-level="2.2" data-path="installation.html"><a href="installation.html#qgis-graphical-user-interface"><i class="fa fa-check"></i><b>2.2</b> QGIS Graphical User Interface</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="loading-and-exporting-data.html"><a href="loading-and-exporting-data.html"><i class="fa fa-check"></i><b>3</b> Loading and Exporting data</a><ul>
+<li class="chapter" data-level="3.1" data-path="loading-and-exporting-data.html"><a href="loading-and-exporting-data.html#importing-data-from-text-files"><i class="fa fa-check"></i><b>3.1</b> Importing data from text files</a></li>
+<li class="chapter" data-level="3.2" data-path="loading-and-exporting-data.html"><a href="loading-and-exporting-data.html#importing-data-from-kml-files"><i class="fa fa-check"></i><b>3.2</b> Importing data from KML files</a></li>
+<li class="chapter" data-level="3.3" data-path="loading-and-exporting-data.html"><a href="loading-and-exporting-data.html#importing-geojson-files"><i class="fa fa-check"></i><b>3.3</b> Importing GeoJSON files</a></li>
+<li class="chapter" data-level="3.4" data-path="loading-and-exporting-data.html"><a href="loading-and-exporting-data.html#saving-a-layer"><i class="fa fa-check"></i><b>3.4</b> Saving a layer</a></li>
+<li class="chapter" data-level="3.5" data-path="loading-and-exporting-data.html"><a href="loading-and-exporting-data.html#reprojecting-a-layer"><i class="fa fa-check"></i><b>3.5</b> Reprojecting a layer</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-treatment.html"><a href="data-treatment.html"><i class="fa fa-check"></i><b>4</b> Data treatment</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-treatment.html"><a href="data-treatment.html#joining-layer-data"><i class="fa fa-check"></i><b>4.1</b> Joining layer data</a></li>
+<li class="chapter" data-level="4.2" data-path="data-treatment.html"><a href="data-treatment.html#cleaning-up-the-attribute-table"><i class="fa fa-check"></i><b>4.2</b> Cleaning up the attribute table</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html"><i class="fa fa-check"></i><b>5</b> Data preprocessing steps</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html#clipping-vectors"><i class="fa fa-check"></i><b>5.1</b> Clipping vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-exploration.html"><a href="data-exploration.html"><i class="fa fa-check"></i><b>6</b> Data exploration</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-exploration.html"><a href="data-exploration.html#listing-unique-values-in-a-column"><i class="fa fa-check"></i><b>6.1</b> Listing unique values in a column</a></li>
+<li class="chapter" data-level="6.2" data-path="data-exploration.html"><a href="data-exploration.html#loading-basemaps"><i class="fa fa-check"></i><b>6.2</b> Loading BaseMaps</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">QGIS</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="loading-and-exporting-data" class="section level1">
+<h1><span class="header-section-number">Section 3</span> Loading and Exporting data</h1>
+<p>The quickest way to load data into QGIS is the technique drag-and-drop. It only requires locating the data you want to import into QGIS, select the file, and drop it on the <strong>Map display</strong> or on the <strong>layer panel</strong>.</p>
+<p>Another option for importing data is to use the browser panel. Navigate through the browser, locate the layer or data to be imported, right-click on it, and finally select Add Layer to Project. However, using the <strong>Manage Layers Toolbar</strong> or <strong>Add Layer</strong> from the <strong>Layer</strong> menu give more control on the importation.</p>
+<div id="importing-data-from-text-files" class="section level2">
+<h2><span class="header-section-number">3.1</span> Importing data from text files</h2>
+<p>This recipe is illustrated with the <code>coordonnees-stations-rsqa.csv</code> file, which reports the locations of the stations of the Air Quality Monitoring Network (RSQA) set up in Montreal. The aim of the RSQA is to monitor the atmospheric concentration of <a href="https://www.epa.gov/criteria-air-pollutants">criteria pollutants</a>.</p>
+<ol style="list-style-type: decimal">
+<li>Navigate to the <strong>Layer</strong> menu and select <strong>Add delimited text layer</strong>. The following dialog will pop up:</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<img src="figures/Delimited_Text_Dialog.png" alt="Add delimited text layer window" width="548" />
+<p class="caption">
+Figure 3.1: Add delimited text layer window
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>In the <strong>File Name</strong> field, indicate the path to the <code>coordonnees-stations-rsqa.csv</code> file.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<img src="figures/Delimited_Text_Dialog_2.png" alt="Indicating the path to the text file" width="554" />
+<p class="caption">
+Figure 3.2: Indicating the path to the text file
+</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li><p>In the <strong>Geometry Definition</strong> section, indicate that point coordinates are being imported. Then indicate the corresponding fields for longitude and latitude. According to the sources of the layer being imported, the coordinate system is WGS 84, so we don’t need to change it. When you want to import an attribute table, you can select the option <strong>No geometry</strong>.</p></li>
+<li><p>Click on <strong>Add</strong>. You will see the following set of points, probably not in the same colour. Optionally, you can add a base map or another layer to give some spatial context, but for now we have successfully imported the layer corresponding to the stations of the RSQA network.</p></li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<img src="figures/Stations_RSQA.png" alt="Montreal's Air Quality Monitoring Network" width="414" />
+<p class="caption">
+Figure 3.3: Montreal’s Air Quality Monitoring Network
+</p>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>Optional step: save the imported layer as a new shapefile (see how to do it).</li>
+</ol>
+</div>
+<div id="importing-data-from-kml-files" class="section level2">
+<h2><span class="header-section-number">3.2</span> Importing data from KML files</h2>
+<p>QGIS supports importing <a href="https://developers.google.com/kml/">Keyhole Markup Language</a> (KML) files. KML is the format used by Google Earth to show spatial data.</p>
+<p>The importation of a KML is illustrated with the <code>grandparcs.kml</code> file which contains polygons corresponding to the parks or Montreal.</p>
+<ol style="list-style-type: decimal">
+<li>Navigate to the <strong>Layer</strong> menu and select <strong>Add vector layer</strong>. The following dialog will pop up:</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<img src="figures/Import_KML.png" alt="Add vector layer window" width="516" />
+<p class="caption">
+Figure 3.4: Add vector layer window
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>In the <strong>File Name</strong> field, indicate the path to the <code>grandparcs.kml</code> file. The following layer will be displayed in QGIS:</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
+<img src="figures/Import_KML_2.png" alt="Indicating the path to the KML file" width="347" />
+<p class="caption">
+Figure 3.5: Indicating the path to the KML file
+</p>
+</div>
+</div>
+<div id="importing-geojson-files" class="section level2">
+<h2><span class="header-section-number">3.3</span> Importing GeoJSON files</h2>
+<p><a href="https://geojson.org/">GeoJSON</a> is another frequently used format for storing and representing geographical attributes. This format is based on the JavaScript Object Notation (JSON).</p>
+<p>The importation of a GeoJSON layer is illustrated with the <code>ilotschaleur.json</code> file. This file contains the urban heat islands (UHI) of Montreal. UHI correspond to urban areas characterized by higher summer temperatures than the immediate environment with differences between 5 and 10°C.</p>
+<ol style="list-style-type: decimal">
+<li>Navigate to the <strong>Layer</strong> menu and select <strong>Add vector layer</strong>. The following dialog will pop up:</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-7"></span>
+<img src="figures/Import_geojson.png" alt="Add vector layer window" width="436" />
+<p class="caption">
+Figure 3.6: Add vector layer window
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>In the <strong>File Name</strong> field, indicate the path to the <code>ilotschaleur.json</code> file. The following layer will be displayed in QGIS:</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<img src="figures/Import_geojson_2.png" alt="Indicating the path to the GeoJSON file" width="340" />
+<p class="caption">
+Figure 3.7: Indicating the path to the GeoJSON file
+</p>
+</div>
+</div>
+<div id="saving-a-layer" class="section level2">
+<h2><span class="header-section-number">3.4</span> Saving a layer</h2>
+<p>We use the previously imported <code>coordonnees-stations-rsqa.csv</code> file to illustrate how to export a layer in a different format.</p>
+<ol style="list-style-type: decimal">
+<li>Right-click on the name of the layer, select <strong>Export</strong>, then <strong>Save features As…</strong> The following dialog window will pop up.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
+<img src="figures/Save_Layer.png" alt="Save features as... window" width="352" />
+<p class="caption">
+Figure 3.8: Save features as… window
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Select the format in which you want to export the layer. In this case, we have selected the widely used ESRI shapefile, we will use this layer in future recipes. Another commonly used format is GeoJson since it is compatible with web base applications.</p></li>
+<li><p>Indicate the path where the layer will be stored and give it a name. Indicate whether you want to add the saved file to the current project, and finally click on OK.</p></li>
+</ol>
+</div>
+<div id="reprojecting-a-layer" class="section level2">
+<h2><span class="header-section-number">3.5</span> Reprojecting a layer</h2>
+<p>Most of the time, the layers are not in a CRS that is more convenient for the operation in hand. QGIS offers on-the-fly reprojections for rendering the layers. However, when executing operations like spatial analysis, it is required that all layers be in the same CRS. This recipe is illustrated with the <code>LIMADMIN.shp</code> file that corresponds to the administrative limits of Montreal’s boroughs.</p>
+<p>Before executing a spatial analysis, it is recommended to reproject the layers to the most convenient CRS.</p>
+<ol style="list-style-type: decimal">
+<li>Right-click on the name of the layer, select <strong>Export</strong>, then <strong>Save features As…</strong>. The following dialog window will pop up.</li>
+<li>Indicate the path where the layer will be stored and give it a name. If you tick the box <strong>Add saved file to map</strong>, the recently exported layer will be saved and added to the current project.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
+<img src="figures/Reproject_Layer.png" alt="Reprojecting a layer" width="347" />
+<p class="caption">
+Figure 3.9: Reprojecting a layer
+</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Click on the little globe to select the CRS in which the new layer will be projected. The following window will pop up:</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-11"></span>
+<img src="figures/Reproject_Layer_CRS.png" alt="Selecting another CRS" width="356" />
+<p class="caption">
+Figure 3.10: Selecting another CRS
+</p>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>You can filter the CRS. In this case we will export the new layer in <strong>EPSG:6622</strong>, since it is the most accurate for <a href="https://epsg.io/6622">Quebec</a>. Click <strong>OK</strong> to confirm the selection of the CRS and click again <strong>OK</strong> to save the layer.</li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="installation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-treatment.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-import_export.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

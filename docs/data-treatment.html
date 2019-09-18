@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="data-exploration.html">
-
+<link rel="prev" href="loading-and-exporting-data.html">
+<link rel="next" href="data-preprocessing-steps.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -110,63 +110,139 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
-<table style="width:38%;">
-<colgroup>
-<col width="8%" />
-<col width="18%" />
-<col width="11%" />
-</colgroup>
+<div id="data-treatment" class="section level1">
+<h1><span class="header-section-number">Section 4</span> Data treatment</h1>
+<div id="joining-layer-data" class="section level2">
+<h2><span class="header-section-number">4.1</span> Joining layer data</h2>
+<p>Another frequent task before executing spatial analysis with QGIS is to join an attribute table to a layer.</p>
+<p>To illustrate this task, we refer to the <code>stations_rsqa.shp</code> file generated in section 1 and the file <code>pollutants_average_12_31_2019_13H.csv</code> file. When we load the shapefile into QGIS we identify that this layer only contains information on the identification and location of stations that compose the Air Quality Monitoring Network (RSQA).</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
+<img src="figures/Change_Encoding.png" alt="Joining layer data" width="556" />
+<p class="caption">
+Figure 4.1: Joining layer data
+</p>
+</div>
+<p>We realize another problem, the name (nom) and the address of the stations are not correctly displayed. In order to fix it, right-click on the name of the layer, and select properties. A window will pop up. Go to <strong>Source</strong> and change the <strong>Data Source Encoding</strong> to <strong>UTF-8</strong>. Finally, click on Apply to accept the changes.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-13"></span>
+<img src="figures/Change_Encoding_2.png" alt="Changing encoding" width="460" />
+<p class="caption">
+Figure 4.2: Changing encoding
+</p>
+</div>
+<p>Now, import the <code>pollutants_average_12_31_2019_13H.csv</code> file. One kick method is to drag and drop the file from the file into QGIS. This works fine for this file; however, you also can use <strong>Add Delimited Text Layer</strong> to have more control on the importation.</p>
+<p>The <code>pollutants_average_12_31_2019_13H.csv</code> file reports the average concentration of criteria pollutants from December 23, 2013, at 12h.</p>
+<table>
 <thead>
 <tr class="header">
-<th>Data</th>
-<th>File name</th>
-<th>Source</th>
+<th>Pollutant</th>
+<th>Unit</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>RSQA - liste des stations</td>
-<td>coordonnees-stations-rsqa.csv</td>
-<td><a href="http://donnees.ville.montreal.qc.ca/dataset/rsqa-liste-des-stations/resource/29db5545-89a4-4e4a-9e95-05aa6dc2fd80">Portail données ouvertes Montréal</a></td>
+<td>CO</td>
+<td>ppm</td>
 </tr>
 <tr class="even">
-<td>RSQA - polluants gazeux 2013-07-01 à 2013-12-31</td>
-<td>pollutants_average_12_31_2019_13H.csv</td>
-<td><a href="http://donnees.ville.montreal.qc.ca/dataset/rsqa-polluants-gazeux/resource/26ddbd0b-47f6-4039-98b2-b32568ed01b1">Portail données ouvertes Montréal</a></td>
+<td>H<sub>2</sub>S</td>
+<td>ppb</td>
 </tr>
 <tr class="odd">
-<td>Grands parcs</td>
-<td>grandparcs.kml</td>
-<td><a href="http://donnees.ville.montreal.qc.ca/dataset/grands-parcs">Portail données ouvertes Montréal</a></td>
+<td>NO</td>
+<td>ppb</td>
 </tr>
 <tr class="even">
-<td>Îlots de chaleur</td>
-<td>ilotschaleur.json</td>
-<td><a href="http://donnees.ville.montreal.qc.ca/dataset/schema-environnement-milieux-naturels/resource/8cd8d34a-cfdd-4acf-a363-d4adaeff18c0">Portail données ouvertes Montréal</a></td>
+<td>NO<sub>2</sub></td>
+<td>ppb</td>
 </tr>
 <tr class="odd">
-<td>Limite administrative de l’agglomération de Montréal (Arrondissement et Ville liée)</td>
-<td>LIMADMIN.shp</td>
-<td><a href="http://donnees.ville.montreal.qc.ca/dataset/polygones-arrondissements">Portail données ouvertes Montréal</a></td>
+<td>SO<sub>2</sub></td>
+<td><span class="math inline">\(\mu g/m^3\)</span></td>
 </tr>
 <tr class="even">
-<td>Anciens territoires administratifs de l’île de Montréal</td>
-<td>quartier_limite.shp</td>
-<td><a href="http://donnees.ville.montreal.qc.ca/dataset/anciens-territoires">Portail données ouvertes Montréal</a></td>
+<td>PM<sub>10</sub></td>
+<td><span class="math inline">\(\mu g/m^3\)</span></td>
+</tr>
+<tr class="odd">
+<td>PM<sub>2.5</sub></td>
+<td><span class="math inline">\(\mu g/m^3\)</span></td>
+</tr>
+<tr class="even">
+<td>O<sub>3</sub></td>
+<td>ppb</td>
 </tr>
 </tbody>
 </table>
+<p>In order to join the <code>pollutants_average_12_31_2019_13H</code> attribute table to the <code>stations_rsqa</code> layer, follow these steps:</p>
+<ol style="list-style-type: decimal">
+<li>Right-click on the name of <code>stations_rsqa</code> layer, select <strong>Properties</strong>, then <strong>Joins</strong> from the dialog window.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-14"></span>
+<img src="figures/Joins_Dialog_Box.png" alt="Layer properties window" width="476" />
+<p class="caption">
+Figure 4.3: Layer properties window
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Click on the green <strong>+</strong> sign. The following window will pop up:</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-15"></span>
+<img src="figures/Joins_Dialog_Box_2.png" alt="Joining a layer table" width="262" />
+<p class="caption">
+Figure 4.4: Joining a layer table
+</p>
+</div>
+<p>In this case, since we have imported only one attribute table, QGIS has already selected the Join layer.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Specify the <strong>Join field</strong> and the <strong>Target field</strong>, which correspond to the keys that relate the shapefile layer and the data layer. In this example, <strong>NO_POSTE</strong> is the identifier of the stations in the data layer and <strong>Numéro st</strong> is the identifier of the stations in the shapefile layer. Furthermore, it is possible to select the fields that will be joined, and the prefix that will be used. Since there are no repeated columns, we just deleted the default prefix, which corresponds to the name of the layer.</p></li>
+<li><p>Click on <strong>OK</strong>, then on <strong>Apply</strong> to finish the joining.</p></li>
+</ol>
+<blockquote>
+<p>To verify that the join has worked, you can open the attribute table of the shapefile. To make this change permanent, you need to export the layer. After the join, the layer was exported as <code>stations_rsqa_12_31_2013.shp</code>.</p>
+</blockquote>
+</div>
+<div id="cleaning-up-the-attribute-table" class="section level2">
+<h2><span class="header-section-number">4.2</span> Cleaning up the attribute table</h2>
+<p>Sometimes, data imported into QGIS is not in the correct format, the name of columns is not self-explanatory, or we simply want to discard the columns that will not be used during the task in hand.</p>
+<p>The <strong>Refactor fields</strong> algorithm simplifies removing, renaming and converting the format of dbf tables in QGIS. This algorithm ca be accessed through the <strong>Processing Toolbox</strong>. The use of <strong>Refactor fields</strong> is illustrated with the <code>stations_rsqa_12_31_2013.shp</code> file that was generated in the previous section.</p>
+<ol style="list-style-type: decimal">
+<li>Import <code>stations_rsqa_12_31_2013.shp</code> file</li>
+<li>Launch the <strong>Refactor field</strong>. It will detect the available layer in the current project. In this window we can identify the name of columns, the type of information they store, their length and precision. The columns corresponding to concentrations, such as CO, H2S, and NO, are currently stored as text (data type is string). This is not convenient, since we cannot do arithmetic with text. Furthermore, we may want to change the name of <strong>Numéro st</strong> field for <strong>Station</strong>.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-16"></span>
+<img src="figures/Refactor_Dialog.png" alt="Refactor field window" width="566" />
+<p class="caption">
+Figure 4.5: Refactor field window
+</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>We change the name of the first three columns according to the following figure, and the type of columns corresponding to concentrations was set as <strong>Double</strong> (real number) with a length of 23 and a precision of 3. Click on <strong>Run</strong> to generate a new layer.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-17"></span>
+<img src="figures/Refactor_Dialog_Settings.png" alt="Using the refactor field algorithm" width="552" />
+<p class="caption">
+Figure 4.6: Using the refactor field algorithm
+</p>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>The generated layer is named by default Refactored, of course, you can change its name at your convenience.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-18"></span>
+<img src="figures/Refactor_Dialog_Settings_2.png" alt="Refactored layer" width="318" />
+<p class="caption">
+Figure 4.7: Refactored layer
+</p>
+</div>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="data-exploration.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="loading-and-exporting-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-preprocessing-steps.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -196,7 +272,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-references.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-data_treatment.Rmd",
 "text": "Edit"
 },
 "download": ["bookdown-demo.pdf", "bookdown-demo.epub"],

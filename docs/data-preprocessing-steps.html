@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="data-exploration.html">
-
+<link rel="prev" href="data-treatment.html">
+<link rel="next" href="data-exploration.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -110,63 +110,43 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
-<table style="width:38%;">
-<colgroup>
-<col width="8%" />
-<col width="18%" />
-<col width="11%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Data</th>
-<th>File name</th>
-<th>Source</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>RSQA - liste des stations</td>
-<td>coordonnees-stations-rsqa.csv</td>
-<td><a href="http://donnees.ville.montreal.qc.ca/dataset/rsqa-liste-des-stations/resource/29db5545-89a4-4e4a-9e95-05aa6dc2fd80">Portail données ouvertes Montréal</a></td>
-</tr>
-<tr class="even">
-<td>RSQA - polluants gazeux 2013-07-01 à 2013-12-31</td>
-<td>pollutants_average_12_31_2019_13H.csv</td>
-<td><a href="http://donnees.ville.montreal.qc.ca/dataset/rsqa-polluants-gazeux/resource/26ddbd0b-47f6-4039-98b2-b32568ed01b1">Portail données ouvertes Montréal</a></td>
-</tr>
-<tr class="odd">
-<td>Grands parcs</td>
-<td>grandparcs.kml</td>
-<td><a href="http://donnees.ville.montreal.qc.ca/dataset/grands-parcs">Portail données ouvertes Montréal</a></td>
-</tr>
-<tr class="even">
-<td>Îlots de chaleur</td>
-<td>ilotschaleur.json</td>
-<td><a href="http://donnees.ville.montreal.qc.ca/dataset/schema-environnement-milieux-naturels/resource/8cd8d34a-cfdd-4acf-a363-d4adaeff18c0">Portail données ouvertes Montréal</a></td>
-</tr>
-<tr class="odd">
-<td>Limite administrative de l’agglomération de Montréal (Arrondissement et Ville liée)</td>
-<td>LIMADMIN.shp</td>
-<td><a href="http://donnees.ville.montreal.qc.ca/dataset/polygones-arrondissements">Portail données ouvertes Montréal</a></td>
-</tr>
-<tr class="even">
-<td>Anciens territoires administratifs de l’île de Montréal</td>
-<td>quartier_limite.shp</td>
-<td><a href="http://donnees.ville.montreal.qc.ca/dataset/anciens-territoires">Portail données ouvertes Montréal</a></td>
-</tr>
-</tbody>
-</table>
+<div id="data-preprocessing-steps" class="section level1">
+<h1><span class="header-section-number">Section 5</span> Data preprocessing steps</h1>
+<div id="clipping-vectors" class="section level2">
+<h2><span class="header-section-number">5.1</span> Clipping vectors</h2>
+<p>In some cases, it is necessary than a layer covers only an area of interest. For this purpose, we can use a layer setting the extent we want to keep for a section of a layer. To accomplish this task, we use <strong>Clip</strong> from the <strong>Geoprocessing Tool</strong>.</p>
+<p>To illustrate the operation of clipping vectors, we will use <code>quartier_limite.shp</code> and <code>LIMADMIN.shp</code> files.</p>
+<ol style="list-style-type: decimal">
+<li>Load both layers into QGIS. <code>LIMADMIN.shp</code> corresponds to the administrative limits of Montreal’s arrondissements (last update in 2013); however, the polygons extent beyond the terrestrial limits. On the other hand, the <code>quartier_limite.shp</code> file corresponds to the former administrative limits, but the polygons cover only (approximately) the terrestrial limits.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-19"></span>
+<img src="figures/Clipping_Vectors.png" alt="Clip window" width="350" />
+<p class="caption">
+Figure 5.1: Clip window
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Navigate to <strong>Layer</strong>, then to <strong>Geoprocessing Tool</strong>, and select <strong>Clip</strong>. The following window will pop up. <code>LIMADMIN.shp</code> layer corresponds to the Input layer, since it is the layer we want to cut, whereas the <code>quartier_limite.shp</code> is the Overlay layer, the layer we will use to set the limits we want to keep.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-20"></span>
+<img src="figures/Clipping_Vectors_Dialog.png" alt="Using the clip algorithm" width="416" />
+<p class="caption">
+Figure 5.2: Using the clip algorithm
+</p>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Click on Run to generate a new layer. Save the clipped layer as <code>limadmin_clipped.shp</code>.</li>
+</ol>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="data-exploration.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="data-treatment.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-exploration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -196,7 +176,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-references.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-data_processing.Rmd",
 "text": "Edit"
 },
 "download": ["bookdown-demo.pdf", "bookdown-demo.epub"],

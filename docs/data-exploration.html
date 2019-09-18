@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="data-exploration.html">
-
+<link rel="prev" href="data-preprocessing-steps.html">
+<link rel="next" href="references.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -110,63 +110,50 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
-<table style="width:38%;">
-<colgroup>
-<col width="8%" />
-<col width="18%" />
-<col width="11%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Data</th>
-<th>File name</th>
-<th>Source</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>RSQA - liste des stations</td>
-<td>coordonnees-stations-rsqa.csv</td>
-<td><a href="http://donnees.ville.montreal.qc.ca/dataset/rsqa-liste-des-stations/resource/29db5545-89a4-4e4a-9e95-05aa6dc2fd80">Portail données ouvertes Montréal</a></td>
-</tr>
-<tr class="even">
-<td>RSQA - polluants gazeux 2013-07-01 à 2013-12-31</td>
-<td>pollutants_average_12_31_2019_13H.csv</td>
-<td><a href="http://donnees.ville.montreal.qc.ca/dataset/rsqa-polluants-gazeux/resource/26ddbd0b-47f6-4039-98b2-b32568ed01b1">Portail données ouvertes Montréal</a></td>
-</tr>
-<tr class="odd">
-<td>Grands parcs</td>
-<td>grandparcs.kml</td>
-<td><a href="http://donnees.ville.montreal.qc.ca/dataset/grands-parcs">Portail données ouvertes Montréal</a></td>
-</tr>
-<tr class="even">
-<td>Îlots de chaleur</td>
-<td>ilotschaleur.json</td>
-<td><a href="http://donnees.ville.montreal.qc.ca/dataset/schema-environnement-milieux-naturels/resource/8cd8d34a-cfdd-4acf-a363-d4adaeff18c0">Portail données ouvertes Montréal</a></td>
-</tr>
-<tr class="odd">
-<td>Limite administrative de l’agglomération de Montréal (Arrondissement et Ville liée)</td>
-<td>LIMADMIN.shp</td>
-<td><a href="http://donnees.ville.montreal.qc.ca/dataset/polygones-arrondissements">Portail données ouvertes Montréal</a></td>
-</tr>
-<tr class="even">
-<td>Anciens territoires administratifs de l’île de Montréal</td>
-<td>quartier_limite.shp</td>
-<td><a href="http://donnees.ville.montreal.qc.ca/dataset/anciens-territoires">Portail données ouvertes Montréal</a></td>
-</tr>
-</tbody>
-</table>
+<div id="data-exploration" class="section level1">
+<h1><span class="header-section-number">Section 6</span> Data exploration</h1>
+<div id="listing-unique-values-in-a-column" class="section level2">
+<h2><span class="header-section-number">6.1</span> Listing unique values in a column</h2>
+<p>The <strong>List Unique values</strong> algorithm, from the <strong>Processing Toolbox</strong>, generates a table and a HTLM report of the unique values of a given layer’s field.</p>
+<p>To illustrate the use of the <strong>List Unique values</strong> algorithm, we will import the <code>grandparcs.kml</code> file. The field <strong>Generique2</strong> stores the type of parks located in Montreal, and we would like to know the unique values without having to open the attribute table.</p>
+<ol style="list-style-type: decimal">
+<li><p>Launch the <strong>List Unique values</strong> algorithm from the <strong>Processing Toolbox</strong>. It will identify the available layer in the current project.</p></li>
+<li><p>Click on <strong>…</strong> from the <strong>Target Field(s)</strong> and select <strong>Generique2</strong>. Click on Run to generate a temporary layer and a HTLM report.</p></li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-21"></span>
+<img src="figures/List_Unique_Values.png" alt="List unique values window" width="532" />
+<p class="caption">
+Figure 6.1: List unique values window
+</p>
+</div>
+</div>
+<div id="loading-basemaps" class="section level2">
+<h2><span class="header-section-number">6.2</span> Loading BaseMaps</h2>
+<p>When we import layers into QGIS, sometimes it is difficult to identify what the points, lines or polygons of a layer correspond to. In these situations, it is very helpful to add a base map to give some spatial context.</p>
+<p>One plugging that comes in hand to add spatial context is <strong>QuickMapServices</strong>. If it is not already available in your QGIS Desktop, navigate to <strong>Plugins</strong>, then to <strong>Manage and Install Plugins</strong>. In the window that has been displayed search <strong>QuickMapServices</strong> and click on <strong>Install Plugin</strong>.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-22"></span>
+<img src="figures/QuickMapServices.png" alt="Manage and install plugins in QGIS" width="516" />
+<p class="caption">
+Figure 6.2: Manage and install plugins in QGIS
+</p>
+</div>
+<p>To illustrate the use of <strong>QuickMapServices</strong>, load the <code>stations_rsqa_12_31_2013.shp</code>. Navigate to <strong>Web</strong> from the menu bar, select <strong>QuickMapServices</strong>, go to <strong>OSM</strong>, and select <strong>OSM_Standard</strong>. You will see the following set of air quality monitoring stations located in Montreal.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-23"></span>
+<img src="figures/BaseMaps_Example.png" alt="Montreal's Air Quality Monitoring Network" width="411" />
+<p class="caption">
+Figure 6.3: Montreal’s Air Quality Monitoring Network
+</p>
+</div>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="data-exploration.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="data-preprocessing-steps.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -196,7 +183,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-references.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-data_exploration.Rmd",
 "text": "Edit"
 },
 "download": ["bookdown-demo.pdf", "bookdown-demo.epub"],

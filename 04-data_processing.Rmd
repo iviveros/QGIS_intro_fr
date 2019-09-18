@@ -1,0 +1,22 @@
+# Data preprocessing steps
+
+## Clipping vectors
+
+In some cases, it is necessary than a layer covers only an area of interest. For this purpose, we can use a layer setting the extent we want to keep for a section of a layer. To accomplish this task, we use **Clip** from the **Geoprocessing Tool**. 
+
+To illustrate the operation of clipping vectors, we will use `quartier_limite.shp` and `LIMADMIN.shp` files.
+
+1. Load both layers into QGIS. `LIMADMIN.shp` corresponds to the administrative limits of Montreal’s arrondissements (last update in 2013); however, the polygons extent beyond the terrestrial limits. On the other hand, the `quartier_limite.shp` file corresponds to the former administrative limits, but the polygons cover only (approximately) the terrestrial limits.
+
+```{r echo=FALSE,fig.align='center',fig.cap='Clip window'}
+knitr::include_graphics('figures/Clipping_Vectors.png')
+```
+
+2. Navigate to **Layer**, then to **Geoprocessing Tool**, and select **Clip**. The following window will pop up. `LIMADMIN.shp` layer corresponds to the Input layer, since it is the layer we want to cut, whereas the `quartier_limite.shp` is the Overlay layer, the layer we will use to set the limits we want to keep. 
+
+```{r echo=FALSE,fig.align='center',fig.cap='Using the clip algorithm'}
+knitr::include_graphics('figures/Clipping_Vectors_Dialog.png')
+```
+
+4. Click on Run to generate a new layer. Save the clipped layer as `limadmin_clipped.shp`.
+
