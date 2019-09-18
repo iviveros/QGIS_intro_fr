@@ -6,7 +6,7 @@ Another option for importing data is to use the browser panel. Navigate through 
 
 ## Importing data from text files
 
-This recipe is illustrated with the `coordonnees-stations-rsqa.csv` file, which reports the locations of the stations of the Air Quality Monitoring Network (RSQA) set up in Montreal. The aim of the RSQA is to monitor the atmospheric concentration of [criteria pollutants](https://www.epa.gov/criteria-air-pollutants).
+This recipe is illustrated with the `coordonnees-stations-rsqa.csv` file, which reports the locations of the stations of the Air Quality Monitoring Network (RSQA) set up in Montreal. The aim of the [RSQA](https://ville.montreal.qc.ca/rapportmontrealdurable/en/air-quality.php) is to monitor the atmospheric concentration of [criteria pollutants](https://www.epa.gov/criteria-air-pollutants).
 
 1. Navigate to the **Layer** menu and select **Add delimited text layer**. The following dialog will pop up:
 
@@ -28,14 +28,16 @@ knitr::include_graphics('figures/Delimited_Text_Dialog_2.png')
 knitr::include_graphics('figures/Stations_RSQA.png')
 ```
 
-5. Optional step: save the imported layer as a new shapefile (see how to do it).
+> In section \@ref(basemaps) we describe how to add a basemap to add spatial context.
+
+5. **Optional step**: save the imported layer as a new shapefile (Section \@ref(saveLayer)).
 
 
 ## Importing data from KML files
 
 QGIS supports importing [Keyhole Markup Language](https://developers.google.com/kml/) (KML) files. KML is the format used by Google Earth to show spatial data.
 
-The importation of a KML is illustrated with the `grandparcs.kml` file which contains polygons corresponding to the parks or Montreal. 
+The importation of a KML is illustrated with the `grandparcs.kml` file which contains polygons corresponding to the [parks of Montreal](http://donnees.ville.montreal.qc.ca/dataset/grands-parcs). 
 
 1.	Navigate to the **Layer** menu and select **Add vector layer**. The following dialog will pop up:
 
@@ -45,7 +47,7 @@ knitr::include_graphics('figures/Import_KML.png')
 
 2.	In the **File Name** field, indicate the path to the `grandparcs.kml` file. The following layer will be displayed in QGIS:
 
-```{r echo=FALSE,fig.align='center',fig.cap='Indicating the path to the KML file'}
+```{r echo=FALSE,fig.align='center',fig.cap="Montreal's parks"}
 knitr::include_graphics('figures/Import_KML_2.png')
 ```
 
@@ -54,7 +56,7 @@ knitr::include_graphics('figures/Import_KML_2.png')
 
 [GeoJSON](https://geojson.org/) is another frequently used format for storing and representing geographical attributes. This format is based on the JavaScript Object Notation (JSON). 
 
-The importation of a GeoJSON layer is illustrated with the `ilotschaleur.json` file. This file contains the urban heat islands (UHI) of Montreal. UHI correspond to urban areas characterized by higher summer temperatures than the immediate environment with differences between 5 and 10°C.
+The importation of a GeoJSON layer is illustrated with the `ilotschaleur.json` file. This file contains the [urban heat islands (UHI) of Montreal](http://donnees.ville.montreal.qc.ca/dataset/schema-environnement-milieux-naturels/resource/8cd8d34a-cfdd-4acf-a363-d4adaeff18c0). UHI correspond to urban areas characterized by higher summer temperatures than the immediate environment with differences between 5 and 10°C.
 
 1. Navigate to the **Layer** menu and select **Add vector layer**. The following dialog will pop up:
 
@@ -64,12 +66,12 @@ knitr::include_graphics('figures/Import_geojson.png')
 
 2. In the **File Name** field, indicate the path to the `ilotschaleur.json` file. The following layer will be displayed in QGIS:
 
-```{r echo=FALSE, fig.align='center',fig.cap='Indicating the path to the GeoJSON file'}
+```{r echo=FALSE, fig.align='center',fig.cap='urban heat islands (UHI) of Montreal'}
 knitr::include_graphics('figures/Import_geojson_2.png')
 ```
 
 
-## Saving a layer
+## Saving a layer {#saveLayer}
 
 We use the previously imported `coordonnees-stations-rsqa.csv` file to illustrate how to export a layer in a different format.
 

@@ -6,9 +6,9 @@ In some cases, it is necessary than a layer covers only an area of interest. For
 
 To illustrate the operation of clipping vectors, we will use `quartier_limite.shp` and `LIMADMIN.shp` files.
 
-1. Load both layers into QGIS. `LIMADMIN.shp` corresponds to the administrative limits of Montreal’s arrondissements (last update in 2013); however, the polygons extent beyond the terrestrial limits. On the other hand, the `quartier_limite.shp` file corresponds to the former administrative limits, but the polygons cover only (approximately) the terrestrial limits.
+1. Load both layers into QGIS. `LIMADMIN.shp` corresponds to the administrative limits of Montreal’s boroughs (last update in 2013); however, the polygons extent beyond the terrestrial limits. On the other hand, the `quartier_limite.shp` file corresponds to the former administrative limits, but the polygons cover only (approximately) the terrestrial limits.
 
-```{r echo=FALSE,fig.align='center',fig.cap='Clip window'}
+```{r echo=FALSE,fig.align='center',fig.cap='Montreal’s boroughs'}
 knitr::include_graphics('figures/Clipping_Vectors.png')
 ```
 

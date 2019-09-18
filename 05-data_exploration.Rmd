@@ -14,7 +14,7 @@ To illustrate the use of the **List Unique values** algorithm, we will import th
 knitr::include_graphics('figures/List_Unique_Values.png')
 ```
 
-## Loading BaseMaps
+## Loading BaseMaps {#basemaps}
 
 When we import layers into QGIS, sometimes it is difficult to identify what the points, lines or polygons of a layer correspond to. In these situations, it is very helpful to add a base map to give some spatial context.
 

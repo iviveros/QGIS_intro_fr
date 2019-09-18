@@ -139,6 +139,10 @@ under the license
 \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons
 Attribution 4.0 International}.
 
+To follow the recipes presented in this document, please download the
+accompanying files from my
+\href{https://github.com/iviveros/QGIS_Data}{GitHub page}.
+
 \chapter{QGIS installation and Graphical User
 Interface}\label{installation}
 
@@ -272,6 +276,11 @@ is to monitor the atmospheric concentration of
 \caption{Montreal's Air Quality Monitoring Network}\label{fig:unnamed-chunk-4}
 \end{figure}
 
+\begin{quote}
+In section \ref{basemaps} we describe how to add a basemap to add
+spatial context.
+\end{quote}
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{4}
@@ -289,7 +298,9 @@ QGIS supports importing
 files. KML is the format used by Google Earth to show spatial data.
 
 The importation of a KML is illustrated with the \texttt{grandparcs.kml}
-file which contains polygons corresponding to the parks or Montreal.
+file which contains polygons corresponding to the
+\href{http://donnees.ville.montreal.qc.ca/dataset/grands-parcs}{parks of
+Montreal}.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -324,7 +335,7 @@ file which contains polygons corresponding to the parks or Montreal.
 
 }
 
-\caption{Indicating the path to the KML file}\label{fig:unnamed-chunk-6}
+\caption{Montreal's parks}\label{fig:unnamed-chunk-6}
 \end{figure}
 
 \section{Importing GeoJSON files}\label{importing-geojson-files}
@@ -334,10 +345,11 @@ for storing and representing geographical attributes. This format is
 based on the JavaScript Object Notation (JSON).
 
 The importation of a GeoJSON layer is illustrated with the
-\texttt{ilotschaleur.json} file. This file contains the urban heat
-islands (UHI) of Montreal. UHI correspond to urban areas characterized
-by higher summer temperatures than the immediate environment with
-differences between 5 and 10°C.
+\texttt{ilotschaleur.json} file. This file contains the
+\href{http://donnees.ville.montreal.qc.ca/dataset/schema-environnement-milieux-naturels/resource/8cd8d34a-cfdd-4acf-a363-d4adaeff18c0}{urban
+heat islands (UHI) of Montreal}. UHI correspond to urban areas
+characterized by higher summer temperatures than the immediate
+environment with differences between 5 and 10°C.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -372,7 +384,7 @@ differences between 5 and 10°C.
 
 }
 
-\caption{Indicating the path to the GeoJSON file}\label{fig:unnamed-chunk-8}
+\caption{urban heat islands (UHI) of Montreal}\label{fig:unnamed-chunk-8}
 \end{figure}
 
 \section{Saving a layer}\label{saveLayer}
@@ -495,7 +507,7 @@ the Air Quality Monitoring Network (RSQA).
 
 }
 
-\caption{Joining layer data}\label{fig:unnamed-chunk-12}
+\caption{Attribute table of stations_rsqa layer}\label{fig:unnamed-chunk-12}
 \end{figure}
 
 We realize another problem, the name (nom) and the address of the
@@ -521,7 +533,7 @@ importation.
 
 The \texttt{pollutants\_average\_12\_31\_2019\_13H.csv} file reports the
 average concentration of criteria pollutants from December 23, 2013, at
-12h.
+12h. The units of concentration are indicated in the following table.
 
 \begin{longtable}[]{@{}ll@{}}
 \toprule
@@ -678,7 +690,7 @@ previous section.
 
 }
 
-\caption{Refactored layer}\label{fig:unnamed-chunk-18}
+\caption{Saving the refactored layer}\label{fig:unnamed-chunk-18}
 \end{figure}
 
 \chapter{Data preprocessing steps}\label{data-preprocessing-steps}
@@ -698,10 +710,10 @@ To illustrate the operation of clipping vectors, we will use
 \tightlist
 \item
   Load both layers into QGIS. \texttt{LIMADMIN.shp} corresponds to the
-  administrative limits of Montreal's arrondissements (last update in
-  2013); however, the polygons extent beyond the terrestrial limits. On
-  the other hand, the \texttt{quartier\_limite.shp} file corresponds to
-  the former administrative limits, but the polygons cover only
+  administrative limits of Montreal's boroughs (last update in 2013);
+  however, the polygons extent beyond the terrestrial limits. On the
+  other hand, the \texttt{quartier\_limite.shp} file corresponds to the
+  former administrative limits, but the polygons cover only
   (approximately) the terrestrial limits.
 \end{enumerate}
 
@@ -711,7 +723,7 @@ To illustrate the operation of clipping vectors, we will use
 
 }
 
-\caption{Clip window}\label{fig:unnamed-chunk-19}
+\caption{Montreal’s boroughs}\label{fig:unnamed-chunk-19}
 \end{figure}
 
 \begin{enumerate}
@@ -781,7 +793,7 @@ attribute table.
 \caption{List unique values window}\label{fig:unnamed-chunk-21}
 \end{figure}
 
-\section{Loading BaseMaps}\label{loading-basemaps}
+\section{Loading BaseMaps}\label{basemaps}
 
 When we import layers into QGIS, sometimes it is difficult to identify
 what the points, lines or polygons of a layer correspond to. In these
@@ -817,6 +829,8 @@ quality monitoring stations located in Montreal.
 
 \caption{Montreal's Air Quality Monitoring Network}\label{fig:unnamed-chunk-23}
 \end{figure}
+
+\chapter{References}\label{references}
 
 \begin{longtable}[]{@{}lll@{}}
 \toprule

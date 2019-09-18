@@ -2,11 +2,9 @@
 
 ## QGIS installation
 
-It is possible to install QGIS on Windows, Mac OS X, Linux, BSD, and Android operating systems. The installers can be downloaded from [this website.](https://qgis.org/en/site/forusers/download.html)
+It is possible to install QGIS on Windows, Mac OS X, Linux, BSD, and Android operating systems. The installers can be downloaded from [this website](https://qgis.org/en/site/forusers/download.html), and [this link](https://qgis.org/en/site/forusers/alldownloads.html#) provides detailed installation instructions.
 
-The [following link](https://qgis.org/en/site/forusers/alldownloads.html#) provides detailed installation instructions.
-
-By the time of writing this document, the last version of `QGIS is 3.8.2 Zanzibar`, which was released on October 16, 2019.
+By the time of writing this document, the last version of QGIS is `3.8.2 Zanzibar`, which was released on October 16, 2019.
 
 ## QGIS Graphical User Interface
 

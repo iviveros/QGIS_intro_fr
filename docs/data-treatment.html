@@ -5,21 +5,21 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>QGIS</title>
-  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <title>A brief introduction to QGIS</title>
+  <meta name="description" content="This is a a brief introduction to QGIS.">
   <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
-  <meta property="og:title" content="QGIS" />
+  <meta property="og:title" content="A brief introduction to QGIS" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta property="og:description" content="This is a a brief introduction to QGIS." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="QGIS" />
+  <meta name="twitter:title" content="A brief introduction to QGIS" />
   
-  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="This is a a brief introduction to QGIS." />
   
 
 <meta name="author" content="Ivan Viveros Santos">
@@ -63,7 +63,7 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">QGIS 101</a></li>
+<li><a href="./">A brief introduction to QGIS</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
@@ -75,7 +75,7 @@
 <li class="chapter" data-level="3.1" data-path="loading-and-exporting-data.html"><a href="loading-and-exporting-data.html#importing-data-from-text-files"><i class="fa fa-check"></i><b>3.1</b> Importing data from text files</a></li>
 <li class="chapter" data-level="3.2" data-path="loading-and-exporting-data.html"><a href="loading-and-exporting-data.html#importing-data-from-kml-files"><i class="fa fa-check"></i><b>3.2</b> Importing data from KML files</a></li>
 <li class="chapter" data-level="3.3" data-path="loading-and-exporting-data.html"><a href="loading-and-exporting-data.html#importing-geojson-files"><i class="fa fa-check"></i><b>3.3</b> Importing GeoJSON files</a></li>
-<li class="chapter" data-level="3.4" data-path="loading-and-exporting-data.html"><a href="loading-and-exporting-data.html#saving-a-layer"><i class="fa fa-check"></i><b>3.4</b> Saving a layer</a></li>
+<li class="chapter" data-level="3.4" data-path="loading-and-exporting-data.html"><a href="loading-and-exporting-data.html#saveLayer"><i class="fa fa-check"></i><b>3.4</b> Saving a layer</a></li>
 <li class="chapter" data-level="3.5" data-path="loading-and-exporting-data.html"><a href="loading-and-exporting-data.html#reprojecting-a-layer"><i class="fa fa-check"></i><b>3.5</b> Reprojecting a layer</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-treatment.html"><a href="data-treatment.html"><i class="fa fa-check"></i><b>4</b> Data treatment</a><ul>
@@ -87,9 +87,9 @@
 </ul></li>
 <li class="chapter" data-level="6" data-path="data-exploration.html"><a href="data-exploration.html"><i class="fa fa-check"></i><b>6</b> Data exploration</a><ul>
 <li class="chapter" data-level="6.1" data-path="data-exploration.html"><a href="data-exploration.html#listing-unique-values-in-a-column"><i class="fa fa-check"></i><b>6.1</b> Listing unique values in a column</a></li>
-<li class="chapter" data-level="6.2" data-path="data-exploration.html"><a href="data-exploration.html#loading-basemaps"><i class="fa fa-check"></i><b>6.2</b> Loading BaseMaps</a></li>
+<li class="chapter" data-level="6.2" data-path="data-exploration.html"><a href="data-exploration.html#basemaps"><i class="fa fa-check"></i><b>6.2</b> Loading BaseMaps</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="7" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>7</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -102,7 +102,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">QGIS</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A brief introduction to QGIS</a>
           </h1>
         </div>
 
@@ -117,9 +117,9 @@
 <p>Another frequent task before executing spatial analysis with QGIS is to join an attribute table to a layer.</p>
 <p>To illustrate this task, we refer to the <code>stations_rsqa.shp</code> file generated in section 1 and the file <code>pollutants_average_12_31_2019_13H.csv</code> file. When we load the shapefile into QGIS we identify that this layer only contains information on the identification and location of stations that compose the Air Quality Monitoring Network (RSQA).</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
-<img src="figures/Change_Encoding.png" alt="Joining layer data" width="556" />
+<img src="figures/Change_Encoding.png" alt="Attribute table of stations_rsqa layer" width="556" />
 <p class="caption">
-Figure 4.1: Joining layer data
+Figure 4.1: Attribute table of stations_rsqa layer
 </p>
 </div>
 <p>We realize another problem, the name (nom) and the address of the stations are not correctly displayed. In order to fix it, right-click on the name of the layer, and select properties. A window will pop up. Go to <strong>Source</strong> and change the <strong>Data Source Encoding</strong> to <strong>UTF-8</strong>. Finally, click on Apply to accept the changes.</p>
@@ -130,7 +130,7 @@ Figure 4.2: Changing encoding
 </p>
 </div>
 <p>Now, import the <code>pollutants_average_12_31_2019_13H.csv</code> file. One kick method is to drag and drop the file from the file into QGIS. This works fine for this file; however, you also can use <strong>Add Delimited Text Layer</strong> to have more control on the importation.</p>
-<p>The <code>pollutants_average_12_31_2019_13H.csv</code> file reports the average concentration of criteria pollutants from December 23, 2013, at 12h.</p>
+<p>The <code>pollutants_average_12_31_2019_13H.csv</code> file reports the average concentration of criteria pollutants from December 23, 2013, at 12h. The units of concentration are indicated in the following table.</p>
 <table>
 <thead>
 <tr class="header">
@@ -228,9 +228,9 @@ Figure 4.6: Using the refactor field algorithm
 <li>The generated layer is named by default Refactored, of course, you can change its name at your convenience.</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-18"></span>
-<img src="figures/Refactor_Dialog_Settings_2.png" alt="Refactored layer" width="318" />
+<img src="figures/Refactor_Dialog_Settings_2.png" alt="Saving the refactored layer" width="318" />
 <p class="caption">
-Figure 4.7: Refactored layer
+Figure 4.7: Saving the refactored layer
 </p>
 </div>
 
