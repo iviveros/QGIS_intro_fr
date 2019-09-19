@@ -52,7 +52,7 @@ In this case, since we have imported only one attribute table, QGIS has already 
 
 4. Click on **OK**, then on **Apply** to finish the joining.
 
-> To verify that the join has worked, you can open the attribute table of the shapefile. To make this change permanent, you need to export the layer. After the join, the layer was exported as `stations_rsqa_12_31_2013.shp`.
+> To verify if the join has worked, you can open the attribute table of the shapefile. To make this change permanent, you need to export the layer. After the join, the layer was exported as `stations_rsqa_12_31_2013.shp`.
 
 ## Cleaning up the attribute table
 
