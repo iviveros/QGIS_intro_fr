@@ -703,7 +703,7 @@ want to keep for a section of a layer. To accomplish this task, we use
 \textbf{Clip} from the \textbf{Geoprocessing Tool}.
 
 To illustrate the operation of clipping vectors, we will use
-\texttt{quartier\_limite.shp} and \texttt{LIMADMIN.shp} files.
+\texttt{terre\_shp} and \texttt{LIMADMIN.shp} files.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -711,15 +711,14 @@ To illustrate the operation of clipping vectors, we will use
 \item
   Load both layers into QGIS. \texttt{LIMADMIN.shp} corresponds to the
   administrative limits of Montreal's boroughs (last update in 2013);
-  however, the polygons extent beyond the terrestrial limits. On the
-  other hand, the \texttt{quartier\_limite.shp} file corresponds to the
-  former administrative limits, but the polygons cover only
-  (approximately) the terrestrial limits.
+  however, the polygons extent beyond the terrestrial limits; whereas
+  the \texttt{terre\_shp} file corresponds to the terrestrial limits of
+  Montreal Island.
 \end{enumerate}
 
 \begin{figure}
 
-{\centering \includegraphics[width=9.72in]{figures/Clipping_Vectors} 
+{\centering \includegraphics[width=10.25in]{figures/Clipping_Vectors} 
 
 }
 
@@ -741,7 +740,7 @@ To illustrate the operation of clipping vectors, we will use
 
 \begin{figure}
 
-{\centering \includegraphics[width=11.57in]{figures/Clipping_Vectors_Dialog} 
+{\centering \includegraphics[width=10.6in]{figures/Clipping_Vectors_Dialog} 
 
 }
 
@@ -756,6 +755,29 @@ To illustrate the operation of clipping vectors, we will use
   Click on Run to generate a new layer. Save the clipped layer as
   \texttt{limadmin\_clipped.shp}.
 \end{enumerate}
+
+\section{Intersecting vectors}\label{intersecting-vectors}
+
+The \textbf{Intersection} algorithm extracts the properties from the
+input layer that overlap features in the overlay layer.
+
+To illustrate this recipe, consider the \texttt{terre.shp} and
+\texttt{LIMADMIN.shp} files. In this case, we will create a layer
+resulting from the intersection between \texttt{terre.shp} and
+\texttt{LIMADMIN.shp}. Therefore, the \texttt{terre.shp} layer
+corresponds to the \textbf{Input Layer}, whereas \texttt{LIMADMIN.shp}
+to the \textbf{Overlay Layer}. We can add an overlay index to identify
+the features that were intersected from the overlay layer in
+Intersection layer generated
+
+\begin{figure}
+
+{\centering \includegraphics[width=10.5in]{figures/Intersecting_Vectors_Dialog} 
+
+}
+
+\caption{Intersection of vectors}\label{fig:unnamed-chunk-21}
+\end{figure}
 
 \chapter{Data exploration}\label{data-exploration}
 
@@ -790,7 +812,7 @@ attribute table.
 
 }
 
-\caption{List unique values window}\label{fig:unnamed-chunk-21}
+\caption{List unique values window}\label{fig:unnamed-chunk-22}
 \end{figure}
 
 \section{Loading BaseMaps}\label{basemaps}
@@ -812,7 +834,7 @@ Install Plugins}. In the window that has been displayed search
 
 }
 
-\caption{Manage and install plugins in QGIS}\label{fig:unnamed-chunk-22}
+\caption{Manage and install plugins in QGIS}\label{fig:unnamed-chunk-23}
 \end{figure}
 
 To illustrate the use of \textbf{QuickMapServices}, load the
@@ -827,7 +849,7 @@ quality monitoring stations located in Montreal.
 
 }
 
-\caption{Montreal's Air Quality Monitoring Network}\label{fig:unnamed-chunk-23}
+\caption{Montreal's Air Quality Monitoring Network}\label{fig:unnamed-chunk-24}
 \end{figure}
 
 \chapter{References}\label{references}

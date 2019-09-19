@@ -61,7 +61,7 @@ Sometimes, data imported into QGIS is not in the correct format, the name of col
 The **Refactor fields** algorithm simplifies removing, renaming and converting the format of dbf tables in QGIS. This algorithm ca be accessed through the **Processing Toolbox**. The use of **Refactor fields** is illustrated with the `stations_rsqa_12_31_2013.shp` file that was generated in the previous section. 
 
 1. Import `stations_rsqa_12_31_2013.shp` file
-2. Launch the **Refactor field**. It will detect the available layer in the current project. In this window we can identify the name of columns, the type of information they store, their length and precision. The columns corresponding to concentrations, such as CO, H2S, and NO, are currently stored as text (data type is string). This is not convenient, since we cannot do arithmetic with text. Furthermore, we may want to change the name of **Numéro st** field for **Station**.
+2. Launch the **Refactor field**. It will detect the available layer in the current project. In this window we can identify the name of columns, the type of information they store, their length and precision. The columns corresponding to concentrations, such as CO, H<sub>2</sub>S, and NO, are currently stored as text (data type is string). This is not convenient, since we cannot do arithmetic with text. Furthermore, we may want to change the name of **Numéro st** field for **Station**.
 
 ```{r echo=FALSE, fig.align='center',fig.cap='Refactor field window'}
 knitr::include_graphics('figures/Refactor_Dialog.png')

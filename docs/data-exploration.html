@@ -84,6 +84,7 @@
 </ul></li>
 <li class="chapter" data-level="5" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html"><i class="fa fa-check"></i><b>5</b> Data preprocessing steps</a><ul>
 <li class="chapter" data-level="5.1" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html#clipping-vectors"><i class="fa fa-check"></i><b>5.1</b> Clipping vectors</a></li>
+<li class="chapter" data-level="5.2" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html#intersecting-vectors"><i class="fa fa-check"></i><b>5.2</b> Intersecting vectors</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="data-exploration.html"><a href="data-exploration.html"><i class="fa fa-check"></i><b>6</b> Data exploration</a><ul>
 <li class="chapter" data-level="6.1" data-path="data-exploration.html"><a href="data-exploration.html#listing-unique-values-in-a-column"><i class="fa fa-check"></i><b>6.1</b> Listing unique values in a column</a></li>
@@ -120,7 +121,7 @@
 <li><p>Launch the <strong>List Unique values</strong> algorithm from the <strong>Processing Toolbox</strong>. It will identify the available layer in the current project.</p></li>
 <li><p>Click on <strong>…</strong> from the <strong>Target Field(s)</strong> and select <strong>Generique2</strong>. Click on Run to generate a temporary layer and a HTLM report.</p></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-21"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-22"></span>
 <img src="figures/List_Unique_Values.png" alt="List unique values window" width="532" />
 <p class="caption">
 Figure 6.1: List unique values window
@@ -131,14 +132,14 @@ Figure 6.1: List unique values window
 <h2><span class="header-section-number">6.2</span> Loading BaseMaps</h2>
 <p>When we import layers into QGIS, sometimes it is difficult to identify what the points, lines or polygons of a layer correspond to. In these situations, it is very helpful to add a base map to give some spatial context.</p>
 <p>One plugging that comes in hand to add spatial context is <strong>QuickMapServices</strong>. If it is not already available in your QGIS Desktop, navigate to <strong>Plugins</strong>, then to <strong>Manage and Install Plugins</strong>. In the window that has been displayed search <strong>QuickMapServices</strong> and click on <strong>Install Plugin</strong>.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-22"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-23"></span>
 <img src="figures/QuickMapServices.png" alt="Manage and install plugins in QGIS" width="516" />
 <p class="caption">
 Figure 6.2: Manage and install plugins in QGIS
 </p>
 </div>
 <p>To illustrate the use of <strong>QuickMapServices</strong>, load the <code>stations_rsqa_12_31_2013.shp</code>. Navigate to <strong>Web</strong> from the menu bar, select <strong>QuickMapServices</strong>, go to <strong>OSM</strong>, and select <strong>OSM_Standard</strong>. You will see the following set of air quality monitoring stations located in Montreal.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-23"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-24"></span>
 <img src="figures/BaseMaps_Example.png" alt="Montreal's Air Quality Monitoring Network" width="411" />
 <p class="caption">
 Figure 6.3: Montreal’s Air Quality Monitoring Network

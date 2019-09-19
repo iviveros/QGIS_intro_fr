@@ -84,6 +84,7 @@
 </ul></li>
 <li class="chapter" data-level="5" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html"><i class="fa fa-check"></i><b>5</b> Data preprocessing steps</a><ul>
 <li class="chapter" data-level="5.1" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html#clipping-vectors"><i class="fa fa-check"></i><b>5.1</b> Clipping vectors</a></li>
+<li class="chapter" data-level="5.2" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html#intersecting-vectors"><i class="fa fa-check"></i><b>5.2</b> Intersecting vectors</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="data-exploration.html"><a href="data-exploration.html"><i class="fa fa-check"></i><b>6</b> Data exploration</a><ul>
 <li class="chapter" data-level="6.1" data-path="data-exploration.html"><a href="data-exploration.html#listing-unique-values-in-a-column"><i class="fa fa-check"></i><b>6.1</b> Listing unique values in a column</a></li>
@@ -115,12 +116,12 @@
 <div id="clipping-vectors" class="section level2">
 <h2><span class="header-section-number">5.1</span> Clipping vectors</h2>
 <p>In some cases, it is necessary than a layer covers only an area of interest. For this purpose, we can use a layer setting the extent we want to keep for a section of a layer. To accomplish this task, we use <strong>Clip</strong> from the <strong>Geoprocessing Tool</strong>.</p>
-<p>To illustrate the operation of clipping vectors, we will use <code>quartier_limite.shp</code> and <code>LIMADMIN.shp</code> files.</p>
+<p>To illustrate the operation of clipping vectors, we will use <code>terre_shp</code> and <code>LIMADMIN.shp</code> files.</p>
 <ol style="list-style-type: decimal">
-<li>Load both layers into QGIS. <code>LIMADMIN.shp</code> corresponds to the administrative limits of Montreal’s boroughs (last update in 2013); however, the polygons extent beyond the terrestrial limits. On the other hand, the <code>quartier_limite.shp</code> file corresponds to the former administrative limits, but the polygons cover only (approximately) the terrestrial limits.</li>
+<li>Load both layers into QGIS. <code>LIMADMIN.shp</code> corresponds to the administrative limits of Montreal’s boroughs (last update in 2013); however, the polygons extent beyond the terrestrial limits; whereas the <code>terre_shp</code> file corresponds to the terrestrial limits of Montreal Island.</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-19"></span>
-<img src="figures/Clipping_Vectors.png" alt="Montreal’s boroughs" width="350" />
+<img src="figures/Clipping_Vectors.png" alt="Montreal’s boroughs" width="369" />
 <p class="caption">
 Figure 5.1: Montreal’s boroughs
 </p>
@@ -129,7 +130,7 @@ Figure 5.1: Montreal’s boroughs
 <li>Navigate to <strong>Layer</strong>, then to <strong>Geoprocessing Tool</strong>, and select <strong>Clip</strong>. The following window will pop up. <code>LIMADMIN.shp</code> layer corresponds to the Input layer, since it is the layer we want to cut, whereas the <code>quartier_limite.shp</code> is the Overlay layer, the layer we will use to set the limits we want to keep.</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-20"></span>
-<img src="figures/Clipping_Vectors_Dialog.png" alt="Using the clip algorithm" width="416" />
+<img src="figures/Clipping_Vectors_Dialog.png" alt="Using the clip algorithm" width="382" />
 <p class="caption">
 Figure 5.2: Using the clip algorithm
 </p>
@@ -137,6 +138,17 @@ Figure 5.2: Using the clip algorithm
 <ol start="4" style="list-style-type: decimal">
 <li>Click on Run to generate a new layer. Save the clipped layer as <code>limadmin_clipped.shp</code>.</li>
 </ol>
+</div>
+<div id="intersecting-vectors" class="section level2">
+<h2><span class="header-section-number">5.2</span> Intersecting vectors</h2>
+<p>The <strong>Intersection</strong> algorithm extracts the properties from the input layer that overlap features in the overlay layer.</p>
+<p>To illustrate this recipe, consider the <code>terre.shp</code> and <code>LIMADMIN.shp</code> files. In this case, we will create a layer resulting from the intersection between <code>terre.shp</code> and <code>LIMADMIN.shp</code>. Therefore, the <code>terre.shp</code> layer corresponds to the <strong>Input Layer</strong>, whereas <code>LIMADMIN.shp</code> to the <strong>Overlay Layer</strong>. We can add an overlay index to identify the features that were intersected from the overlay layer in Intersection layer generated</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-21"></span>
+<img src="figures/Intersecting_Vectors_Dialog.PNG" alt="Intersection of vectors" width="378" />
+<p class="caption">
+Figure 5.3: Intersection of vectors
+</p>
+</div>
 
 </div>
 </div>

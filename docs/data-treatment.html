@@ -84,6 +84,7 @@
 </ul></li>
 <li class="chapter" data-level="5" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html"><i class="fa fa-check"></i><b>5</b> Data preprocessing steps</a><ul>
 <li class="chapter" data-level="5.1" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html#clipping-vectors"><i class="fa fa-check"></i><b>5.1</b> Clipping vectors</a></li>
+<li class="chapter" data-level="5.2" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html#intersecting-vectors"><i class="fa fa-check"></i><b>5.2</b> Intersecting vectors</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="data-exploration.html"><a href="data-exploration.html"><i class="fa fa-check"></i><b>6</b> Data exploration</a><ul>
 <li class="chapter" data-level="6.1" data-path="data-exploration.html"><a href="data-exploration.html#listing-unique-values-in-a-column"><i class="fa fa-check"></i><b>6.1</b> Listing unique values in a column</a></li>
@@ -207,7 +208,7 @@ Figure 4.4: Joining a layer table
 <p>The <strong>Refactor fields</strong> algorithm simplifies removing, renaming and converting the format of dbf tables in QGIS. This algorithm ca be accessed through the <strong>Processing Toolbox</strong>. The use of <strong>Refactor fields</strong> is illustrated with the <code>stations_rsqa_12_31_2013.shp</code> file that was generated in the previous section.</p>
 <ol style="list-style-type: decimal">
 <li>Import <code>stations_rsqa_12_31_2013.shp</code> file</li>
-<li>Launch the <strong>Refactor field</strong>. It will detect the available layer in the current project. In this window we can identify the name of columns, the type of information they store, their length and precision. The columns corresponding to concentrations, such as CO, H2S, and NO, are currently stored as text (data type is string). This is not convenient, since we cannot do arithmetic with text. Furthermore, we may want to change the name of <strong>Numéro st</strong> field for <strong>Station</strong>.</li>
+<li>Launch the <strong>Refactor field</strong>. It will detect the available layer in the current project. In this window we can identify the name of columns, the type of information they store, their length and precision. The columns corresponding to concentrations, such as CO, H<sub>2</sub>S, and NO, are currently stored as text (data type is string). This is not convenient, since we cannot do arithmetic with text. Furthermore, we may want to change the name of <strong>Numéro st</strong> field for <strong>Station</strong>.</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-16"></span>
 <img src="figures/Refactor_Dialog.png" alt="Refactor field window" width="566" />

@@ -4,9 +4,9 @@
 
 In some cases, it is necessary than a layer covers only an area of interest. For this purpose, we can use a layer setting the extent we want to keep for a section of a layer. To accomplish this task, we use **Clip** from the **Geoprocessing Tool**. 
 
-To illustrate the operation of clipping vectors, we will use `quartier_limite.shp` and `LIMADMIN.shp` files.
+To illustrate the operation of clipping vectors, we will use `terre_shp` and `LIMADMIN.shp` files.
 
-1. Load both layers into QGIS. `LIMADMIN.shp` corresponds to the administrative limits of Montreal’s boroughs (last update in 2013); however, the polygons extent beyond the terrestrial limits. On the other hand, the `quartier_limite.shp` file corresponds to the former administrative limits, but the polygons cover only (approximately) the terrestrial limits.
+1. Load both layers into QGIS. `LIMADMIN.shp` corresponds to the administrative limits of Montreal’s boroughs (last update in 2013); however, the polygons extent beyond the terrestrial limits; whereas the `terre_shp` file corresponds to the terrestrial limits of Montreal Island.
 
 ```{r echo=FALSE,fig.align='center',fig.cap='Montreal’s boroughs'}
 knitr::include_graphics('figures/Clipping_Vectors.png')
@@ -20,3 +20,12 @@ knitr::include_graphics('figures/Clipping_Vectors_Dialog.png')
 
 4. Click on Run to generate a new layer. Save the clipped layer as `limadmin_clipped.shp`.
 
+## Intersecting vectors
+
+The **Intersection** algorithm extracts the properties from the input layer that overlap features in the overlay layer.
+
+To illustrate this recipe, consider the `terre.shp` and `LIMADMIN.shp` files. In this case, we will create a layer resulting from the intersection between `terre.shp` and `LIMADMIN.shp`. Therefore, the `terre.shp` layer corresponds to the **Input Layer**, whereas `LIMADMIN.shp` to the **Overlay Layer**. We can add an overlay index to identify the features that were intersected from the overlay layer in Intersection layer generated
+
+```{r echo=FALSE, fig.align='center',fig.cap='Intersection of vectors'}
+knitr::include_graphics('figures/Intersecting_Vectors_Dialog.PNG')
+```
