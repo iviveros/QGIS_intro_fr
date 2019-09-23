@@ -6,7 +6,6 @@ bookdown::gitbook:
         <li><a href="./">A brief introduction to QGIS</a></li>
       after: |
         <li><a href="https://ca.linkedin.com/in/ivan-viveros-santos" target="blank">About Ivan</a></li>
-    edit: https://ca.linkedin.com/in/ivan-viveros-santos%s
     download: ["pdf", "epub"]
 bookdown::pdf_book:
   includes:

@@ -85,7 +85,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-09-18}
+    \date{2019-09-23}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -123,11 +123,11 @@
 Information System (GIS) licensed under the GNU General Public License.
 
 The aim of this document is to present some recipes about importing and
-exporting vectors, and treatment and exploration of spatial data. I
-expect to add more recipes on vector styling and map composition.
+exporting vectors, and treatment and exploration of spatial data. I plan
+to add more recipes on vector styling and map composition.
 
-This is a brief introduction to QGIS, as such it does not intend to
-replace the \href{https://docs.qgis.org/3.4/en/docs/user_manual/}{QGIS
+This is a brief introduction to QGIS, as such, it does not replace in
+any maner the \href{https://docs.qgis.org/3.4/en/docs/user_manual/}{QGIS
 User Guide}. I also recommend you visiting the
 \href{https://gis.stackexchange.com/}{StackExchange} chanel, where you
 can get support on questions related to QGIS.
@@ -138,6 +138,10 @@ ouvertes Montréal}; particularly, the selected data from this site is
 under the license
 \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons
 Attribution 4.0 International}.
+
+To follow the recipes presented in this document, please download the
+accompanying files from my
+\href{https://github.com/iviveros/QGIS_Data}{GitHub page}.
 
 \chapter{QGIS installation and Graphical User
 Interface}\label{installation}
@@ -272,6 +276,11 @@ is to monitor the atmospheric concentration of
 \caption{Montreal's Air Quality Monitoring Network}\label{fig:unnamed-chunk-4}
 \end{figure}
 
+\begin{quote}
+In section \ref{basemaps} we describe how to add a basemap to add
+spatial context.
+\end{quote}
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{4}
@@ -289,7 +298,9 @@ QGIS supports importing
 files. KML is the format used by Google Earth to show spatial data.
 
 The importation of a KML is illustrated with the \texttt{grandparcs.kml}
-file which contains polygons corresponding to the parks or Montreal.
+file which contains polygons corresponding to the
+\href{http://donnees.ville.montreal.qc.ca/dataset/grands-parcs}{parks of
+Montreal}.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -324,7 +335,7 @@ file which contains polygons corresponding to the parks or Montreal.
 
 }
 
-\caption{Indicating the path to the KML file}\label{fig:unnamed-chunk-6}
+\caption{Montreal's parks}\label{fig:unnamed-chunk-6}
 \end{figure}
 
 \section{Importing GeoJSON files}\label{importing-geojson-files}
@@ -334,10 +345,11 @@ for storing and representing geographical attributes. This format is
 based on the JavaScript Object Notation (JSON).
 
 The importation of a GeoJSON layer is illustrated with the
-\texttt{ilotschaleur.json} file. This file contains the urban heat
-islands (UHI) of Montreal. UHI correspond to urban areas characterized
-by higher summer temperatures than the immediate environment with
-differences between 5 and 10°C.
+\texttt{ilotschaleur.json} file. This file contains the
+\href{http://donnees.ville.montreal.qc.ca/dataset/schema-environnement-milieux-naturels/resource/8cd8d34a-cfdd-4acf-a363-d4adaeff18c0}{urban
+heat islands (UHI) of Montreal}. UHI correspond to urban areas
+characterized by higher summer temperatures than the immediate
+environment with differences between 5 and 10°C.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -372,7 +384,7 @@ differences between 5 and 10°C.
 
 }
 
-\caption{Indicating the path to the GeoJSON file}\label{fig:unnamed-chunk-8}
+\caption{Urban heat islands (UHI) of Montreal}\label{fig:unnamed-chunk-8}
 \end{figure}
 
 \section{Saving a layer}\label{saveLayer}
@@ -477,7 +489,7 @@ layers to the most convenient CRS.
 
 \chapter{Data treatment}\label{data-treatment}
 
-\section{Joining layer data}\label{joining-layer-data}
+\section{Joining a layer data}\label{joining-a-layer-data}
 
 Another frequent task before executing spatial analysis with QGIS is to
 join an attribute table to a layer.
@@ -495,7 +507,7 @@ the Air Quality Monitoring Network (RSQA).
 
 }
 
-\caption{Joining layer data}\label{fig:unnamed-chunk-12}
+\caption{Attribute table of stations}\label{fig:unnamed-chunk-12}
 \end{figure}
 
 We realize another problem, the name (nom) and the address of the
@@ -521,7 +533,7 @@ importation.
 
 The \texttt{pollutants\_average\_12\_31\_2019\_13H.csv} file reports the
 average concentration of criteria pollutants from December 23, 2013, at
-12h.
+12h. The units of concentration are indicated in the following table.
 
 \begin{longtable}[]{@{}ll@{}}
 \toprule
@@ -597,7 +609,7 @@ already selected the Join layer.
 \end{enumerate}
 
 \begin{quote}
-To verify that the join has worked, you can open the attribute table of
+To verify if the join has worked, you can open the attribute table of
 the shapefile. To make this change permanent, you need to export the
 layer. After the join, the layer was exported as
 \texttt{stations\_rsqa\_12\_31\_2013.shp}.
@@ -678,7 +690,7 @@ previous section.
 
 }
 
-\caption{Refactored layer}\label{fig:unnamed-chunk-18}
+\caption{Saving the refactored layer}\label{fig:unnamed-chunk-18}
 \end{figure}
 
 \chapter{Data preprocessing steps}\label{data-preprocessing-steps}
@@ -691,27 +703,26 @@ want to keep for a section of a layer. To accomplish this task, we use
 \textbf{Clip} from the \textbf{Geoprocessing Tool}.
 
 To illustrate the operation of clipping vectors, we will use
-\texttt{quartier\_limite.shp} and \texttt{LIMADMIN.shp} files.
+\texttt{terre\_shp} and \texttt{LIMADMIN.shp} files.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   Load both layers into QGIS. \texttt{LIMADMIN.shp} corresponds to the
-  administrative limits of Montreal's arrondissements (last update in
-  2013); however, the polygons extent beyond the terrestrial limits. On
-  the other hand, the \texttt{quartier\_limite.shp} file corresponds to
-  the former administrative limits, but the polygons cover only
-  (approximately) the terrestrial limits.
+  administrative limits of Montreal's boroughs (last update in 2013);
+  however, the polygons extent beyond the terrestrial limits; whereas
+  the \texttt{terre\_shp} file corresponds to the terrestrial limits of
+  Montreal Island.
 \end{enumerate}
 
 \begin{figure}
 
-{\centering \includegraphics[width=9.72in]{figures/Clipping_Vectors} 
+{\centering \includegraphics[width=10.25in]{figures/Clipping_Vectors} 
 
 }
 
-\caption{Clip window}\label{fig:unnamed-chunk-19}
+\caption{Montreal’s boroughs}\label{fig:unnamed-chunk-19}
 \end{figure}
 
 \begin{enumerate}
@@ -729,7 +740,7 @@ To illustrate the operation of clipping vectors, we will use
 
 \begin{figure}
 
-{\centering \includegraphics[width=11.57in]{figures/Clipping_Vectors_Dialog} 
+{\centering \includegraphics[width=10.6in]{figures/Clipping_Vectors_Dialog} 
 
 }
 
@@ -744,6 +755,58 @@ To illustrate the operation of clipping vectors, we will use
   Click on Run to generate a new layer. Save the clipped layer as
   \texttt{limadmin\_clipped.shp}.
 \end{enumerate}
+
+\section{Intersecting vectors}\label{IntersectionVectors}
+
+The \textbf{Intersection} algorithm extracts the properties from the
+input layer that overlap features in the overlay layer.
+
+To illustrate this recipe, consider the \texttt{terre.shp} and
+\texttt{LIMADMIN.shp} files. In this case, we will create a layer
+resulting from the intersection between \texttt{terre.shp} and
+\texttt{LIMADMIN.shp}. Therefore, the \texttt{terre.shp} layer
+corresponds to the \textbf{Input Layer}, whereas \texttt{LIMADMIN.shp}
+to the \textbf{Overlay Layer}. We can add an overlay index to identify
+the features that were intersected from the overlay layer in
+Intersection layer generated
+
+\begin{figure}
+
+{\centering \includegraphics[width=10.5in]{figures/Intersecting_Vectors_Dialog} 
+
+}
+
+\caption{Intersection of vectors}\label{fig:unnamed-chunk-21}
+\end{figure}
+
+\section{Check validity and fix
+geometries}\label{check-validity-and-fix-geometries}
+
+In some cases, when clipping and intersecting vectors, errors may arise
+because of invalid geometries. Fortunately, QGIS allows us to check the
+validity of layers, and even more importantly to fix them. The following
+algorithms can be accessed through the \textbf{Processing Toolbox}:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Check validity}: The algorithm performs a validity check on
+  the geometries of a vector layer. The geometries are classified in
+  three groups (valid, invalid and error).
+\item
+  \textbf{Fix geometries}: The algorithm attempts to create a valid
+  representation of an invalid geometry without losing any of the input
+  vertices.
+\end{itemize}
+
+\begin{figure}
+
+{\centering \includegraphics[width=3.94in]{figures/Validity_Fix_Geometry} 
+
+}
+
+\caption{Check validity and fix geometries}\label{fig:unnamed-chunk-22}
+\end{figure}
 
 \chapter{Data exploration}\label{data-exploration}
 
@@ -778,10 +841,10 @@ attribute table.
 
 }
 
-\caption{List unique values window}\label{fig:unnamed-chunk-21}
+\caption{List unique values window}\label{fig:unnamed-chunk-23}
 \end{figure}
 
-\section{Loading BaseMaps}\label{loading-basemaps}
+\section{Loading BaseMaps}\label{basemaps}
 
 When we import layers into QGIS, sometimes it is difficult to identify
 what the points, lines or polygons of a layer correspond to. In these
@@ -800,7 +863,7 @@ Install Plugins}. In the window that has been displayed search
 
 }
 
-\caption{Manage and install plugins in QGIS}\label{fig:unnamed-chunk-22}
+\caption{Manage and install plugins in QGIS}\label{fig:unnamed-chunk-24}
 \end{figure}
 
 To illustrate the use of \textbf{QuickMapServices}, load the
@@ -815,8 +878,357 @@ quality monitoring stations located in Montreal.
 
 }
 
-\caption{Montreal's Air Quality Monitoring Network}\label{fig:unnamed-chunk-23}
+\caption{Montreal's Air Quality Monitoring Network}\label{fig:unnamed-chunk-25}
 \end{figure}
+
+\chapter{Exercises}\label{exercises}
+
+\section{Exercise 1: Determine the area fraction of urban heat islands
+by boroughs of
+Montreal}\label{exercise-1-determine-the-area-fraction-of-urban-heat-islands-by-boroughs-of-montreal}
+
+The aim of this exercise is to generate a
+\href{https://en.wikipedia.org/wiki/Choropleth_map}{choropleth map}
+showing the area fraction of urban heat islands by boroughs of Montreal.
+
+\begin{figure}
+
+{\centering \includegraphics[width=18.1in]{figures/Choropleth_UHI} 
+
+}
+
+\caption{Area fraction of UHI by boroughs}\label{fig:unnamed-chunk-26}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Import \texttt{ilotschaleur.json} and \texttt{limadmim\_clipped.shp}.
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=15.1in]{figures/UHA_Montreal} 
+
+}
+
+\caption{UHI and boroughs of Montreal}\label{fig:unnamed-chunk-27}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  Export \texttt{ilotschaleur.json} as a shapefile and save it as
+  \texttt{ilotschaleur.shp} (Section \ref{saveLayer}).
+\item
+  Intersect the recently created layer \texttt{ilotschaleur.shp} with
+  \texttt{limadmim\_clipped.shp}. Navigate to \textbf{Vector}, select
+  \textbf{Geoprocessing Tools}, and the \textbf{Intersection} (Section
+  \ref{IntersectionVectors}). Set the following parameters:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Input layer}: \texttt{ilotschaleur.shp}
+\item
+  \textbf{Overlay layer}: \texttt{limadmim\_clipped.shp}
+\end{itemize}
+
+The aim is to generate a new layer in which the urban heat islands are
+divided according to Montreal's boroughs.
+
+\begin{figure}
+
+{\centering \includegraphics[width=10.64in]{figures/Intersection_UHA} 
+
+}
+
+\caption{Intersection of layers}\label{fig:unnamed-chunk-28}
+\end{figure}
+
+Click Run to execute the algorithm. However, it will stop since there
+are some invalid geometries in the input layer.
+
+\begin{figure}
+
+{\centering \includegraphics[width=10.54in]{figures/Intersection_UHA_Error} 
+
+}
+
+\caption{Error: Intersection of layers}\label{fig:unnamed-chunk-29}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  We will use the \textbf{Fix Geometries} algorithm from the
+  \textbf{Processing Toolbox} to fix the geometries. Run the algorithm
+  according to the following settings.
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=10.46in]{figures/Fix_Geometry_UHA} 
+
+}
+
+\caption{Fix geometries algorithm}\label{fig:unnamed-chunk-30}
+\end{figure}
+
+A temporary layer will be generated after running the algorithm. Right
+click on layer \texttt{Fixed\ geometries} and rename it
+\texttt{ilotschaleur\_fixed}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Run again the \textbf{Intersection} algorithm, but this time use the
+  fixed layer of urban heat islands. Set the following parameters:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Input layer}: \texttt{ilotschaleur\_fixed.shp}
+\item
+  \textbf{Overlay layer}: \texttt{limadmim\_clipped.shp}
+\end{itemize}
+
+\begin{figure}
+
+{\centering \includegraphics[width=10.53in]{figures/Intersection_UHA_Fixed} 
+
+}
+
+\caption{Intersection of layers}\label{fig:unnamed-chunk-31}
+\end{figure}
+
+A temporary layer \texttt{Intersection} will be generated after running
+the algorithm. To verify that the algorithm has properly worked, open
+the attribute table and you will notice that the \texttt{Intersection}
+layer has 584 attributes, whereas the \texttt{ilotschaleur\_fixed} has
+498.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Dissolve the \texttt{Intersection} layer by NOM. The aim is to combine
+  the polygons corresponding to the same borough, which is given by the
+  NOM field. In the \textbf{Dissolve field(s)}, click on the \ldots{}
+  and select NOM.
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=10.6in]{figures/Dissolve_UHA} 
+
+}
+
+\caption{Dissolve Intersection layer by NOM}\label{fig:unnamed-chunk-32}
+\end{figure}
+
+After running the \textbf{Dissolve} algorithm, a temporary layer
+\texttt{Dissolved} will be generated. Open the attribute table of this
+layer and verify that it has 33 attributes; whereas the
+\texttt{Intersection} layer has 584. The task of combining the polygons
+has been accomplished.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  Calculate the area of the urban heat islands by boroughs.
+\end{enumerate}
+
+First of all, we will delete the fields of the \texttt{Dissolved} layer
+that will not be used. Open the attribute table, then click on the
+pencil shown in the left corner (\textbf{Toggle editing mode}) to allow
+editing the attribute table. Click on \textbf{Delete} field and select
+the fields shown in the following figure:
+
+\begin{figure}
+
+{\centering \includegraphics[width=13.75in]{figures/Delete_Fields} 
+
+}
+
+\caption{Delete some fields of Dissolved layer}\label{fig:unnamed-chunk-33}
+\end{figure}
+
+We will now calculate the area of the urban heat islands by borough.
+Click on \textbf{New field}. In the window that will display, select
+\textbf{Create a new field}, indicate \emph{AREA} in the \textbf{Output
+field name}, set \emph{Decimal number (real)} as the \textbf{Output
+field type}. Double click on \emph{\$area} from the center panel.
+
+\begin{figure}
+
+{\centering \includegraphics[width=12.49in]{figures/Calculate_Area} 
+
+}
+
+\caption{Calculate the area of UHI}\label{fig:unnamed-chunk-34}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{7}
+\tightlist
+\item
+  Join the AREA of the urban heat islands (\texttt{Dissolved} layer) to
+  the respective borough in the \texttt{limadmim\_clipped.shp} layer.
+  The prefix \textbf{UHA\_ was} set to distinguish the fields from the
+  joined layer.
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=14.26in]{figures/Join_UHA} 
+
+}
+
+\caption{Join layers}\label{fig:unnamed-chunk-35}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{8}
+\tightlist
+\item
+  Calculate the fraction area of urban heat islands (UHI) by boroughs.
+\end{enumerate}
+
+First, calculate the AREA of each borough from the
+\texttt{limadmim\_clipped.shp} layer. Click on \textbf{New field}. In
+the window that will display, select \textbf{Create a new field},
+indicate AREA in the Output field name, set Decimal number (real) as the
+Output field type. Double click on \$area from the center panel.
+
+\begin{figure}
+
+{\centering \includegraphics[width=13.42in]{figures/Calculate_Area_Montreal} 
+
+}
+
+\caption{Calculate the area of Montreal's boroughs}\label{fig:unnamed-chunk-36}
+\end{figure}
+
+Finally, calculate the area fraction of UHI. In the center panel, go to
+\textbf{Fields and Values}, double click to select the involved fields
+in the computation of the new one. In this case, the area fraction is
+given by the expression: FRAC\_UHA = UHA\_AREA/AREA
+
+\begin{quote}
+Note: UHI was misspelled. So UHA stand for UHI.
+\end{quote}
+
+\begin{figure}
+
+{\centering \includegraphics[width=14.1in]{figures/Calculate_Area_Fraction} 
+
+}
+
+\caption{Calculate the area fraction of UHI}\label{fig:unnamed-chunk-37}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{9}
+\tightlist
+\item
+  Style the \texttt{limadmim\_clipped.shp} layer so that it shows the
+  area fraction of UHI in four classes of equal interval.
+\end{enumerate}
+
+Right click on \texttt{limadmim\_clipped.shp}, select
+\textbf{Properties}, then \textbf{Symbology}, and set the parameters
+according to the following figure.
+
+\begin{figure}
+
+{\centering \includegraphics[width=14.17in]{figures/Area_Fraction_UHA} 
+
+}
+
+\caption{Changing the symbology of a layer}\label{fig:unnamed-chunk-38}
+\end{figure}
+
+\chapter{References}\label{references}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\begin{minipage}[b]{0.08\columnwidth}\raggedright\strut
+Data\strut
+\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\raggedright\strut
+File name\strut
+\end{minipage} & \begin{minipage}[b]{0.10\columnwidth}\raggedright\strut
+Source\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.08\columnwidth}\raggedright\strut
+RSQA - liste des stations\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+coordonnees-stations-rsqa.csv\strut
+\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright\strut
+\href{http://donnees.ville.montreal.qc.ca/dataset/rsqa-liste-des-stations/resource/29db5545-89a4-4e4a-9e95-05aa6dc2fd80}{Portail
+données ouvertes Montréal}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright\strut
+RSQA - polluants gazeux 2013-07-01 à 2013-12-31\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+pollutants\_average\_12\_31\_2019\_13H.csv\strut
+\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright\strut
+\href{http://donnees.ville.montreal.qc.ca/dataset/rsqa-polluants-gazeux/resource/26ddbd0b-47f6-4039-98b2-b32568ed01b1}{Portail
+données ouvertes Montréal}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright\strut
+Grands parcs\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+grandparcs.kml\strut
+\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright\strut
+\href{http://donnees.ville.montreal.qc.ca/dataset/grands-parcs}{Portail
+données ouvertes Montréal}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright\strut
+Îlots de chaleur\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+ilotschaleur.json\strut
+\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright\strut
+\href{http://donnees.ville.montreal.qc.ca/dataset/schema-environnement-milieux-naturels/resource/8cd8d34a-cfdd-4acf-a363-d4adaeff18c0}{Portail
+données ouvertes Montréal}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright\strut
+Limite administrative de l'agglomération de Montréal (Arrondissement et
+Ville liée)\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+LIMADMIN.shp\strut
+\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright\strut
+\href{http://donnees.ville.montreal.qc.ca/dataset/polygones-arrondissements}{Portail
+données ouvertes Montréal}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright\strut
+Anciens territoires administratifs de l'île de Montréal\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+quartier\_limite.shp\strut
+\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright\strut
+\href{http://donnees.ville.montreal.qc.ca/dataset/anciens-territoires}{Portail
+données ouvertes Montréal}\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\chapter{References}\label{references-1}
 
 \begin{longtable}[]{@{}lll@{}}
 \toprule

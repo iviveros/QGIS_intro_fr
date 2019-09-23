@@ -6,7 +6,7 @@ Another frequent task before executing spatial analysis with QGIS is to join an 
 
 To illustrate this task, we refer to the `stations_rsqa.shp` file generated in section 1 and the file `pollutants_average_12_31_2019_13H.csv` file. When we load the shapefile into QGIS we identify that this layer only contains information on the identification and location of stations that compose the Air Quality Monitoring Network (RSQA).
 
-```{r echo=FALSE, fig.align='center',fig.cap='Attribute table of stations_rsqa layer'}
+```{r echo=FALSE, fig.align='center',fig.cap='Attribute table of stations'}
 knitr::include_graphics('figures/Change_Encoding.png')
 ```
 

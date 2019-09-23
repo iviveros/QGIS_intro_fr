@@ -29,8 +29,8 @@ knitr::include_graphics('figures/Intersection_UHA.PNG')
 Click Run to execute the algorithm. However, it will stop since there are some invalid geometries in the input layer.
 
 
-```{r echo=FALSE,fig.align='center',fig.cap='Error: Intersection of layers',out.width='70%'}
-knitr::include_graphics('figures/Intersection_UHA_Error.PNG ')
+```{r echo=FALSE,fig.align='center',fig.cap='Error: Intersection of layers'}
+knitr::include_graphics('figures/Intersection_UHA_Error.PNG')
 ```
 
 4. We will use the **Fix Geometries** algorithm from the **Processing Toolbox** to fix the geometries. Run the algorithm according to the following settings.
@@ -79,7 +79,7 @@ knitr::include_graphics('figures/Calculate_Area.PNG')
 8. Join the AREA of the urban heat islands (`Dissolved` layer) to the respective borough in the `limadmim_clipped.shp` layer. The prefix **UHA_ was** set to distinguish the fields from the joined layer.
 
 
-```{r echo=FALSE, fig.align='center', fig.cap='Join layer Dissolved to limadmim_clipped'}
+```{r echo=FALSE, fig.align='center', fig.cap='Join layers'}
 knitr::include_graphics('figures/Join_UHA.PNG')
 ```
 
