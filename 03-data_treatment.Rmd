@@ -1,6 +1,6 @@
 # Data treatment
 
-##Joining layer data
+##Joining a layer data
 
 Another frequent task before executing spatial analysis with QGIS is to join an attribute table to a layer.
 

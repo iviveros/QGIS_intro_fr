@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>A brief introduction to QGIS</title>
+  <meta name="description" content="This is a a brief introduction to QGIS.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="A brief introduction to QGIS" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a a brief introduction to QGIS." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A brief introduction to QGIS" />
+  
+  <meta name="twitter:description" content="This is a a brief introduction to QGIS." />
+  
+
+<meta name="author" content="Ivan Viveros Santos">
+
+
+<meta name="date" content="2019-09-23">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="data-exploration.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A brief introduction to QGIS</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> QGIS installation and Graphical User Interface</a><ul>
+<li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#qgis-installation"><i class="fa fa-check"></i><b>2.1</b> QGIS installation</a></li>
+<li class="chapter" data-level="2.2" data-path="installation.html"><a href="installation.html#qgis-graphical-user-interface"><i class="fa fa-check"></i><b>2.2</b> QGIS Graphical User Interface</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="loading-and-exporting-data.html"><a href="loading-and-exporting-data.html"><i class="fa fa-check"></i><b>3</b> Loading and Exporting data</a><ul>
+<li class="chapter" data-level="3.1" data-path="loading-and-exporting-data.html"><a href="loading-and-exporting-data.html#importing-data-from-text-files"><i class="fa fa-check"></i><b>3.1</b> Importing data from text files</a></li>
+<li class="chapter" data-level="3.2" data-path="loading-and-exporting-data.html"><a href="loading-and-exporting-data.html#importing-data-from-kml-files"><i class="fa fa-check"></i><b>3.2</b> Importing data from KML files</a></li>
+<li class="chapter" data-level="3.3" data-path="loading-and-exporting-data.html"><a href="loading-and-exporting-data.html#importing-geojson-files"><i class="fa fa-check"></i><b>3.3</b> Importing GeoJSON files</a></li>
+<li class="chapter" data-level="3.4" data-path="loading-and-exporting-data.html"><a href="loading-and-exporting-data.html#saveLayer"><i class="fa fa-check"></i><b>3.4</b> Saving a layer</a></li>
+<li class="chapter" data-level="3.5" data-path="loading-and-exporting-data.html"><a href="loading-and-exporting-data.html#reprojecting-a-layer"><i class="fa fa-check"></i><b>3.5</b> Reprojecting a layer</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-treatment.html"><a href="data-treatment.html"><i class="fa fa-check"></i><b>4</b> Data treatment</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-treatment.html"><a href="data-treatment.html#joining-a-layer-data"><i class="fa fa-check"></i><b>4.1</b> Joining a layer data</a></li>
+<li class="chapter" data-level="4.2" data-path="data-treatment.html"><a href="data-treatment.html#cleaning-up-the-attribute-table"><i class="fa fa-check"></i><b>4.2</b> Cleaning up the attribute table</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html"><i class="fa fa-check"></i><b>5</b> Data preprocessing steps</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html#clipping-vectors"><i class="fa fa-check"></i><b>5.1</b> Clipping vectors</a></li>
+<li class="chapter" data-level="5.2" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html#IntersectionVectors"><i class="fa fa-check"></i><b>5.2</b> Intersecting vectors</a></li>
+<li class="chapter" data-level="5.3" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html#check-validity-and-fix-geometries"><i class="fa fa-check"></i><b>5.3</b> Check validity and fix geometries</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-exploration.html"><a href="data-exploration.html"><i class="fa fa-check"></i><b>6</b> Data exploration</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-exploration.html"><a href="data-exploration.html#listing-unique-values-in-a-column"><i class="fa fa-check"></i><b>6.1</b> Listing unique values in a column</a></li>
+<li class="chapter" data-level="6.2" data-path="data-exploration.html"><a href="data-exploration.html#basemaps"><i class="fa fa-check"></i><b>6.2</b> Loading BaseMaps</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>7</b> Exercises</a><ul>
+<li class="chapter" data-level="7.1" data-path="exercises.html"><a href="exercises.html#exercise-1-determine-the-area-fraction-of-urban-heat-islands-by-boroughs-of-montreal"><i class="fa fa-check"></i><b>7.1</b> Exercise 1: Determine the area fraction of urban heat islands by boroughs of Montreal</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>8</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A brief introduction to QGIS</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="exercises" class="section level1">
+<h1><span class="header-section-number">Section 7</span> Exercises</h1>
+<div id="exercise-1-determine-the-area-fraction-of-urban-heat-islands-by-boroughs-of-montreal" class="section level2">
+<h2><span class="header-section-number">7.1</span> Exercise 1: Determine the area fraction of urban heat islands by boroughs of Montreal</h2>
+<p>The aim of this exercise is to generate a <a href="https://en.wikipedia.org/wiki/Choropleth_map">choropleth map</a> showing the area fraction of urban heat islands by boroughs of Montreal.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-26"></span>
+<img src="figures/Choropleth_UHI.PNG" alt="Area fraction of UHI by boroughs" width="652" />
+<p class="caption">
+Figure 7.1: Area fraction of UHI by boroughs
+</p>
+</div>
+<ol style="list-style-type: decimal">
+<li>Import <code>ilotschaleur.json</code> and <code>limadmim_clipped.shp</code>.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-27"></span>
+<img src="figures/UHA_Montreal.PNG" alt="UHI and boroughs of Montreal" width="544" />
+<p class="caption">
+Figure 7.2: UHI and boroughs of Montreal
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Export <code>ilotschaleur.json</code> as a shapefile and save it as <code>ilotschaleur.shp</code> (Section <a href="loading-and-exporting-data.html#saveLayer">3.4</a>).</p></li>
+<li><p>Intersect the recently created layer <code>ilotschaleur.shp</code> with <code>limadmim_clipped.shp</code>. Navigate to <strong>Vector</strong>, select <strong>Geoprocessing Tools</strong>, and the <strong>Intersection</strong> (Section <a href="data-preprocessing-steps.html#IntersectionVectors">5.2</a>). Set the following parameters:</p></li>
+</ol>
+<ul>
+<li><strong>Input layer</strong>: <code>ilotschaleur.shp</code></li>
+<li><strong>Overlay layer</strong>: <code>limadmim_clipped.shp</code></li>
+</ul>
+<p>The aim is to generate a new layer in which the urban heat islands are divided according to Montreal’s boroughs.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-28"></span>
+<img src="figures/Intersection_UHA.PNG" alt="Intersection of layers" width="383" />
+<p class="caption">
+Figure 7.3: Intersection of layers
+</p>
+</div>
+<p>Click Run to execute the algorithm. However, it will stop since there are some invalid geometries in the input layer.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-29"></span>
+<img src="figures/Intersection_UHA_Error.PNG" alt="Error: Intersection of layers"  />
+<p class="caption">
+Figure 7.4: Error: Intersection of layers
+</p>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>We will use the <strong>Fix Geometries</strong> algorithm from the <strong>Processing Toolbox</strong> to fix the geometries. Run the algorithm according to the following settings.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-30"></span>
+<img src="figures/Fix_Geometry_UHA.PNG" alt="Fix geometries algorithm" width="376" />
+<p class="caption">
+Figure 7.5: Fix geometries algorithm
+</p>
+</div>
+<p>A temporary layer will be generated after running the algorithm. Right click on layer <code>Fixed geometries</code> and rename it <code>ilotschaleur_fixed</code>.</p>
+<ol start="5" style="list-style-type: decimal">
+<li>Run again the <strong>Intersection</strong> algorithm, but this time use the fixed layer of urban heat islands. Set the following parameters:</li>
+</ol>
+<ul>
+<li><strong>Input layer</strong>: <code>ilotschaleur_fixed.shp</code></li>
+<li><strong>Overlay layer</strong>: <code>limadmim_clipped.shp</code></li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-31"></span>
+<img src="figures/Intersection_UHA_Fixed.PNG" alt="Intersection of layers" width="379" />
+<p class="caption">
+Figure 7.6: Intersection of layers
+</p>
+</div>
+<p>A temporary layer <code>Intersection</code> will be generated after running the algorithm. To verify that the algorithm has properly worked, open the attribute table and you will notice that the <code>Intersection</code> layer has 584 attributes, whereas the <code>ilotschaleur_fixed</code> has 498.</p>
+<ol start="6" style="list-style-type: decimal">
+<li>Dissolve the <code>Intersection</code> layer by NOM. The aim is to combine the polygons corresponding to the same borough, which is given by the NOM field. In the <strong>Dissolve field(s)</strong>, click on the … and select NOM.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-32"></span>
+<img src="figures/Dissolve_UHA.PNG" alt="Dissolve Intersection layer by NOM" width="382" />
+<p class="caption">
+Figure 7.7: Dissolve Intersection layer by NOM
+</p>
+</div>
+<p>After running the <strong>Dissolve</strong> algorithm, a temporary layer <code>Dissolved</code> will be generated. Open the attribute table of this layer and verify that it has 33 attributes; whereas the <code>Intersection</code> layer has 584. The task of combining the polygons has been accomplished.</p>
+<ol start="7" style="list-style-type: decimal">
+<li>Calculate the area of the urban heat islands by boroughs.</li>
+</ol>
+<p>First of all, we will delete the fields of the <code>Dissolved</code> layer that will not be used. Open the attribute table, then click on the pencil shown in the left corner (<strong>Toggle editing mode</strong>) to allow editing the attribute table. Click on <strong>Delete</strong> field and select the fields shown in the following figure:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-33"></span>
+<img src="figures/Delete_Fields.PNG" alt="Delete some fields of Dissolved layer" width="495" />
+<p class="caption">
+Figure 7.8: Delete some fields of Dissolved layer
+</p>
+</div>
+<p>We will now calculate the area of the urban heat islands by borough. Click on <strong>New field</strong>. In the window that will display, select <strong>Create a new field</strong>, indicate <em>AREA</em> in the <strong>Output field name</strong>, set <em>Decimal number (real)</em> as the <strong>Output field type</strong>. Double click on <em>$area</em> from the center panel.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-34"></span>
+<img src="figures/Calculate_Area.PNG" alt="Calculate the area of UHI" width="450" />
+<p class="caption">
+Figure 7.9: Calculate the area of UHI
+</p>
+</div>
+<ol start="8" style="list-style-type: decimal">
+<li>Join the AREA of the urban heat islands (<code>Dissolved</code> layer) to the respective borough in the <code>limadmim_clipped.shp</code> layer. The prefix <strong>UHA_ was</strong> set to distinguish the fields from the joined layer.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-35"></span>
+<img src="figures/Join_UHA.PNG" alt="Join layer Dissolved to limadmim_clipped" width="514" />
+<p class="caption">
+Figure 7.10: Join layer Dissolved to limadmim_clipped
+</p>
+</div>
+<ol start="9" style="list-style-type: decimal">
+<li>Calculate the fraction area of urban heat islands (UHI) by boroughs.</li>
+</ol>
+<p>First, calculate the AREA of each borough from the <code>limadmim_clipped.shp</code> layer. Click on <strong>New field</strong>. In the window that will display, select <strong>Create a new field</strong>, indicate AREA in the Output field name, set Decimal number (real) as the Output field type. Double click on $area from the center panel.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-36"></span>
+<img src="figures/Calculate_Area_Montreal.PNG" alt="Calculate the area of Montreal's boroughs" width="483" />
+<p class="caption">
+Figure 7.11: Calculate the area of Montreal’s boroughs
+</p>
+</div>
+<p>Finally, calculate the area fraction of UHI. In the center panel, go to <strong>Fields and Values</strong>, double click to select the involved fields in the computation of the new one. In this case, the area fraction is given by the expression: FRAC_UHA = UHA_AREA/AREA</p>
+<blockquote>
+<p>Note: UHI was misspelled. So UHA stand for UHI.</p>
+</blockquote>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-37"></span>
+<img src="figures/Calculate_Area_Fraction.PNG" alt="Calculate the area fraction of UHI" width="508" />
+<p class="caption">
+Figure 7.12: Calculate the area fraction of UHI
+</p>
+</div>
+<ol start="10" style="list-style-type: decimal">
+<li>Style the <code>limadmim_clipped.shp</code> layer so that it shows the area fraction of UHI in four classes of equal interval.</li>
+</ol>
+<p>Right click on <code>limadmim_clipped.shp</code>, select <strong>Properties</strong>, then <strong>Symbology</strong>, and set the parameters according to the following figure.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-38"></span>
+<img src="figures/Area_Fraction_UHA.PNG" alt="Changing the symbology of a layer" width="510" />
+<p class="caption">
+Figure 7.13: Changing the symbology of a layer
+</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-exploration.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-exercices.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

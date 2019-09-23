@@ -16,9 +16,9 @@ description: "This is a a brief introduction to QGIS."
 
 [QGIS](https://qgis.org/en/site/) is an Open Source Geographic Information System (GIS) licensed under the GNU General Public License.
 
-The aim of this document is to present some recipes about importing and exporting vectors, and treatment and exploration of spatial data. I expect to add more recipes on vector styling and map composition. 
+The aim of this document is to present some recipes about importing and exporting vectors, and treatment and exploration of spatial data. I plan to add more recipes on vector styling and map composition. 
 
-This is a brief introduction to QGIS, as such it does not intend to replace the [QGIS User Guide](https://docs.qgis.org/3.4/en/docs/user_manual/). I also recommend you visiting the [StackExchange](https://gis.stackexchange.com/) chanel, where you can get support on questions related to QGIS.
+This is a brief introduction to QGIS, as such, it does not replace in any maner the [QGIS User Guide](https://docs.qgis.org/3.4/en/docs/user_manual/). I also recommend you visiting the [StackExchange](https://gis.stackexchange.com/) chanel, where you can get support on questions related to QGIS.
 
 The data used to illustrate the recipes presented in this document come from the [Portail données ouvertes Montréal](http://donnees.ville.montreal.qc.ca/); particularly, the selected data from this site is under the license [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).
 

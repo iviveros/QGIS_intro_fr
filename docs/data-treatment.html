@@ -25,7 +25,7 @@
 <meta name="author" content="Ivan Viveros Santos">
 
 
-<meta name="date" content="2019-09-19">
+<meta name="date" content="2019-09-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -79,18 +79,22 @@
 <li class="chapter" data-level="3.5" data-path="loading-and-exporting-data.html"><a href="loading-and-exporting-data.html#reprojecting-a-layer"><i class="fa fa-check"></i><b>3.5</b> Reprojecting a layer</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-treatment.html"><a href="data-treatment.html"><i class="fa fa-check"></i><b>4</b> Data treatment</a><ul>
-<li class="chapter" data-level="4.1" data-path="data-treatment.html"><a href="data-treatment.html#joining-layer-data"><i class="fa fa-check"></i><b>4.1</b> Joining layer data</a></li>
+<li class="chapter" data-level="4.1" data-path="data-treatment.html"><a href="data-treatment.html#joining-a-layer-data"><i class="fa fa-check"></i><b>4.1</b> Joining a layer data</a></li>
 <li class="chapter" data-level="4.2" data-path="data-treatment.html"><a href="data-treatment.html#cleaning-up-the-attribute-table"><i class="fa fa-check"></i><b>4.2</b> Cleaning up the attribute table</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html"><i class="fa fa-check"></i><b>5</b> Data preprocessing steps</a><ul>
 <li class="chapter" data-level="5.1" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html#clipping-vectors"><i class="fa fa-check"></i><b>5.1</b> Clipping vectors</a></li>
-<li class="chapter" data-level="5.2" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html#intersecting-vectors"><i class="fa fa-check"></i><b>5.2</b> Intersecting vectors</a></li>
+<li class="chapter" data-level="5.2" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html#IntersectionVectors"><i class="fa fa-check"></i><b>5.2</b> Intersecting vectors</a></li>
+<li class="chapter" data-level="5.3" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html#check-validity-and-fix-geometries"><i class="fa fa-check"></i><b>5.3</b> Check validity and fix geometries</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="data-exploration.html"><a href="data-exploration.html"><i class="fa fa-check"></i><b>6</b> Data exploration</a><ul>
 <li class="chapter" data-level="6.1" data-path="data-exploration.html"><a href="data-exploration.html#listing-unique-values-in-a-column"><i class="fa fa-check"></i><b>6.1</b> Listing unique values in a column</a></li>
 <li class="chapter" data-level="6.2" data-path="data-exploration.html"><a href="data-exploration.html#basemaps"><i class="fa fa-check"></i><b>6.2</b> Loading BaseMaps</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>7</b> References</a></li>
+<li class="chapter" data-level="7" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>7</b> Exercises</a><ul>
+<li class="chapter" data-level="7.1" data-path="exercises.html"><a href="exercises.html#exercise-1-determine-the-area-fraction-of-urban-heat-islands-by-boroughs-of-montreal"><i class="fa fa-check"></i><b>7.1</b> Exercise 1: Determine the area fraction of urban heat islands by boroughs of Montreal</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>8</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -113,8 +117,8 @@
             <section class="normal" id="section-">
 <div id="data-treatment" class="section level1">
 <h1><span class="header-section-number">Section 4</span> Data treatment</h1>
-<div id="joining-layer-data" class="section level2">
-<h2><span class="header-section-number">4.1</span> Joining layer data</h2>
+<div id="joining-a-layer-data" class="section level2">
+<h2><span class="header-section-number">4.1</span> Joining a layer data</h2>
 <p>Another frequent task before executing spatial analysis with QGIS is to join an attribute table to a layer.</p>
 <p>To illustrate this task, we refer to the <code>stations_rsqa.shp</code> file generated in section 1 and the file <code>pollutants_average_12_31_2019_13H.csv</code> file. When we load the shapefile into QGIS we identify that this layer only contains information on the identification and location of stations that compose the Air Quality Monitoring Network (RSQA).</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>

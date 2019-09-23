@@ -25,7 +25,7 @@
 <meta name="author" content="Ivan Viveros Santos">
 
 
-<meta name="date" content="2019-09-19">
+<meta name="date" content="2019-09-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -79,18 +79,22 @@
 <li class="chapter" data-level="3.5" data-path="loading-and-exporting-data.html"><a href="loading-and-exporting-data.html#reprojecting-a-layer"><i class="fa fa-check"></i><b>3.5</b> Reprojecting a layer</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-treatment.html"><a href="data-treatment.html"><i class="fa fa-check"></i><b>4</b> Data treatment</a><ul>
-<li class="chapter" data-level="4.1" data-path="data-treatment.html"><a href="data-treatment.html#joining-layer-data"><i class="fa fa-check"></i><b>4.1</b> Joining layer data</a></li>
+<li class="chapter" data-level="4.1" data-path="data-treatment.html"><a href="data-treatment.html#joining-a-layer-data"><i class="fa fa-check"></i><b>4.1</b> Joining a layer data</a></li>
 <li class="chapter" data-level="4.2" data-path="data-treatment.html"><a href="data-treatment.html#cleaning-up-the-attribute-table"><i class="fa fa-check"></i><b>4.2</b> Cleaning up the attribute table</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html"><i class="fa fa-check"></i><b>5</b> Data preprocessing steps</a><ul>
 <li class="chapter" data-level="5.1" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html#clipping-vectors"><i class="fa fa-check"></i><b>5.1</b> Clipping vectors</a></li>
-<li class="chapter" data-level="5.2" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html#intersecting-vectors"><i class="fa fa-check"></i><b>5.2</b> Intersecting vectors</a></li>
+<li class="chapter" data-level="5.2" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html#IntersectionVectors"><i class="fa fa-check"></i><b>5.2</b> Intersecting vectors</a></li>
+<li class="chapter" data-level="5.3" data-path="data-preprocessing-steps.html"><a href="data-preprocessing-steps.html#check-validity-and-fix-geometries"><i class="fa fa-check"></i><b>5.3</b> Check validity and fix geometries</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="data-exploration.html"><a href="data-exploration.html"><i class="fa fa-check"></i><b>6</b> Data exploration</a><ul>
 <li class="chapter" data-level="6.1" data-path="data-exploration.html"><a href="data-exploration.html#listing-unique-values-in-a-column"><i class="fa fa-check"></i><b>6.1</b> Listing unique values in a column</a></li>
 <li class="chapter" data-level="6.2" data-path="data-exploration.html"><a href="data-exploration.html#basemaps"><i class="fa fa-check"></i><b>6.2</b> Loading BaseMaps</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>7</b> References</a></li>
+<li class="chapter" data-level="7" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>7</b> Exercises</a><ul>
+<li class="chapter" data-level="7.1" data-path="exercises.html"><a href="exercises.html#exercise-1-determine-the-area-fraction-of-urban-heat-islands-by-boroughs-of-montreal"><i class="fa fa-check"></i><b>7.1</b> Exercise 1: Determine the area fraction of urban heat islands by boroughs of Montreal</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>8</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -139,7 +143,7 @@ Figure 5.2: Using the clip algorithm
 <li>Click on Run to generate a new layer. Save the clipped layer as <code>limadmin_clipped.shp</code>.</li>
 </ol>
 </div>
-<div id="intersecting-vectors" class="section level2">
+<div id="IntersectionVectors" class="section level2">
 <h2><span class="header-section-number">5.2</span> Intersecting vectors</h2>
 <p>The <strong>Intersection</strong> algorithm extracts the properties from the input layer that overlap features in the overlay layer.</p>
 <p>To illustrate this recipe, consider the <code>terre.shp</code> and <code>LIMADMIN.shp</code> files. In this case, we will create a layer resulting from the intersection between <code>terre.shp</code> and <code>LIMADMIN.shp</code>. Therefore, the <code>terre.shp</code> layer corresponds to the <strong>Input Layer</strong>, whereas <code>LIMADMIN.shp</code> to the <strong>Overlay Layer</strong>. We can add an overlay index to identify the features that were intersected from the overlay layer in Intersection layer generated</p>
@@ -147,6 +151,20 @@ Figure 5.2: Using the clip algorithm
 <img src="figures/Intersecting_Vectors_Dialog.PNG" alt="Intersection of vectors" width="378" />
 <p class="caption">
 Figure 5.3: Intersection of vectors
+</p>
+</div>
+</div>
+<div id="check-validity-and-fix-geometries" class="section level2">
+<h2><span class="header-section-number">5.3</span> Check validity and fix geometries</h2>
+<p>In some cases, when clipping and intersecting vectors, errors may arise because of invalid geometries. Fortunately, QGIS allows us to check the validity of layers, and even more importantly to fix them. The following algorithms can be accessed through the <strong>Processing Toolbox</strong>:</p>
+<ul>
+<li><strong>Check validity</strong>: The algorithm performs a validity check on the geometries of a vector layer. The geometries are classified in three groups (valid, invalid and error).</li>
+<li><strong>Fix geometries</strong>: The algorithm attempts to create a valid representation of an invalid geometry without losing any of the input vertices.</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-22"></span>
+<img src="figures/Validity_Fix_Geometry.PNG" alt="Check validity and fix geometries" width="142" />
+<p class="caption">
+Figure 5.4: Check validity and fix geometries
 </p>
 </div>
 

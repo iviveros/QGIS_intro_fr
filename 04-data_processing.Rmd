@@ -20,7 +20,7 @@ knitr::include_graphics('figures/Clipping_Vectors_Dialog.png')
 
 4. Click on Run to generate a new layer. Save the clipped layer as `limadmin_clipped.shp`.
 
-## Intersecting vectors
+## Intersecting vectors {#IntersectionVectors}
 
 The **Intersection** algorithm extracts the properties from the input layer that overlap features in the overlay layer.
 
@@ -29,3 +29,15 @@ To illustrate this recipe, consider the `terre.shp` and `LIMADMIN.shp` files. In
 ```{r echo=FALSE, fig.align='center',fig.cap='Intersection of vectors'}
 knitr::include_graphics('figures/Intersecting_Vectors_Dialog.PNG')
 ```
+
+## Check validity and fix geometries
+
+In some cases, when clipping and intersecting vectors, errors may arise because of invalid geometries. Fortunately, QGIS allows us to check the validity of layers, and even more importantly to fix them. The following algorithms can be accessed through the **Processing Toolbox**:
+
+- **Check validity**: The algorithm performs a validity check on the geometries of a vector layer. The geometries are classified in three groups (valid, invalid and error).
+- **Fix geometries**: The algorithm attempts to create a valid representation of an invalid geometry without losing any of the input vertices.
+
+```{r echo=FALSE, fig.align='center',fig.cap='Check validity and fix geometries'}
+knitr::include_graphics('figures/Validity_Fix_Geometry.PNG')
+```
+
