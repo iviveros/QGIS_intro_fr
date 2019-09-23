@@ -29,7 +29,7 @@ knitr::include_graphics('figures/Intersection_UHA.PNG')
 Click Run to execute the algorithm. However, it will stop since there are some invalid geometries in the input layer.
 
 
-```{r echo=FALSE,fig.align='center',fig.cap='Error: Intersection of layers'}
+```{r echo=FALSE,fig.align='center',fig.cap='Error: Intersection of layers',out.width='70%'}
 knitr::include_graphics('figures/Intersection_UHA_Error.PNG ')
 ```
 
