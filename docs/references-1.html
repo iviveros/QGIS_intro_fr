@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
+<link rel="prev" href="references.html">
 
-<link rel="next" href="installation.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -95,6 +95,7 @@
 <li class="chapter" data-level="7.1" data-path="exercises.html"><a href="exercises.html#exercise-1-determine-the-area-fraction-of-urban-heat-islands-by-boroughs-of-montreal"><i class="fa fa-check"></i><b>7.1</b> Exercise 1: Determine the area fraction of urban heat islands by boroughs of Montreal</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>8</b> References</a></li>
+<li class="chapter" data-level="9" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i><b>9</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://ca.linkedin.com/in/ivan-viveros-santos" target="blank">About Ivan</a></li>
 
@@ -115,18 +116,54 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">A brief introduction to QGIS</h1>
-<h4 class="author"><em>Ivan Viveros Santos</em></h4>
-<h4 class="date"><em>2019-09-23</em></h4>
-</div>
-<div id="introduction" class="section level1">
-<h1><span class="header-section-number">Section 1</span> Introduction</h1>
-<p><a href="https://qgis.org/en/site/">QGIS</a> is an Open Source Geographic Information System (GIS) licensed under the GNU General Public License.</p>
-<p>The aim of this document is to present some recipes about importing and exporting vectors, and treatment and exploration of spatial data. I plan to add more recipes on vector styling and map composition.</p>
-<p>This is a brief introduction to QGIS, as such, it does not replace in any maner the <a href="https://docs.qgis.org/3.4/en/docs/user_manual/">QGIS User Guide</a>. I also recommend you visiting the <a href="https://gis.stackexchange.com/">StackExchange</a> chanel, where you can get support on questions related to QGIS.</p>
-<p>The data used to illustrate the recipes presented in this document come from the <a href="http://donnees.ville.montreal.qc.ca/">Portail données ouvertes Montréal</a>; particularly, the selected data from this site is under the license <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a>.</p>
-<p>To follow the recipes presented in this document, please download the accompanying files from my <a href="https://github.com/iviveros/QGIS_Data">GitHub page</a>.</p>
+<div id="references-1" class="section level1">
+<h1><span class="header-section-number">Section 9</span> References</h1>
+<table style="width:38%;">
+<colgroup>
+<col width="8%" />
+<col width="18%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data</th>
+<th>File name</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RSQA - liste des stations</td>
+<td>coordonnees-stations-rsqa.csv</td>
+<td><a href="http://donnees.ville.montreal.qc.ca/dataset/rsqa-liste-des-stations/resource/29db5545-89a4-4e4a-9e95-05aa6dc2fd80">Portail données ouvertes Montréal</a></td>
+</tr>
+<tr class="even">
+<td>RSQA - polluants gazeux 2013-07-01 à 2013-12-31</td>
+<td>pollutants_average_12_31_2019_13H.csv</td>
+<td><a href="http://donnees.ville.montreal.qc.ca/dataset/rsqa-polluants-gazeux/resource/26ddbd0b-47f6-4039-98b2-b32568ed01b1">Portail données ouvertes Montréal</a></td>
+</tr>
+<tr class="odd">
+<td>Grands parcs</td>
+<td>grandparcs.kml</td>
+<td><a href="http://donnees.ville.montreal.qc.ca/dataset/grands-parcs">Portail données ouvertes Montréal</a></td>
+</tr>
+<tr class="even">
+<td>Îlots de chaleur</td>
+<td>ilotschaleur.json</td>
+<td><a href="http://donnees.ville.montreal.qc.ca/dataset/schema-environnement-milieux-naturels/resource/8cd8d34a-cfdd-4acf-a363-d4adaeff18c0">Portail données ouvertes Montréal</a></td>
+</tr>
+<tr class="odd">
+<td>Limite administrative de l’agglomération de Montréal (Arrondissement et Ville liée)</td>
+<td>LIMADMIN.shp</td>
+<td><a href="http://donnees.ville.montreal.qc.ca/dataset/polygones-arrondissements">Portail données ouvertes Montréal</a></td>
+</tr>
+<tr class="even">
+<td>Anciens territoires administratifs de l’île de Montréal</td>
+<td>quartier_limite.shp</td>
+<td><a href="http://donnees.ville.montreal.qc.ca/dataset/anciens-territoires">Portail données ouvertes Montréal</a></td>
+</tr>
+</tbody>
+</table>
 
 </div>
             </section>
@@ -134,8 +171,8 @@
           </div>
         </div>
       </div>
+<a href="references.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="installation.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -165,7 +202,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://ca.linkedin.com/in/ivan-viveros-santosindex.Rmd",
+"link": "https://ca.linkedin.com/in/ivan-viveros-santos07-references.Rmd",
 "text": "Edit"
 },
 "download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
