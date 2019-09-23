@@ -85,7 +85,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-09-18}
+    \date{2019-09-23}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -123,11 +123,11 @@
 Information System (GIS) licensed under the GNU General Public License.
 
 The aim of this document is to present some recipes about importing and
-exporting vectors, and treatment and exploration of spatial data. I
-expect to add more recipes on vector styling and map composition.
+exporting vectors, and treatment and exploration of spatial data. I plan
+to add more recipes on vector styling and map composition.
 
-This is a brief introduction to QGIS, as such it does not intend to
-replace the \href{https://docs.qgis.org/3.4/en/docs/user_manual/}{QGIS
+This is a brief introduction to QGIS, as such, it does not replace in
+any maner the \href{https://docs.qgis.org/3.4/en/docs/user_manual/}{QGIS
 User Guide}. I also recommend you visiting the
 \href{https://gis.stackexchange.com/}{StackExchange} chanel, where you
 can get support on questions related to QGIS.
@@ -384,7 +384,7 @@ environment with differences between 5 and 10°C.
 
 }
 
-\caption{urban heat islands (UHI) of Montreal}\label{fig:unnamed-chunk-8}
+\caption{Urban heat islands (UHI) of Montreal}\label{fig:unnamed-chunk-8}
 \end{figure}
 
 \section{Saving a layer}\label{saveLayer}
@@ -489,7 +489,7 @@ layers to the most convenient CRS.
 
 \chapter{Data treatment}\label{data-treatment}
 
-\section{Joining layer data}\label{joining-layer-data}
+\section{Joining a layer data}\label{joining-a-layer-data}
 
 Another frequent task before executing spatial analysis with QGIS is to
 join an attribute table to a layer.
@@ -609,7 +609,7 @@ already selected the Join layer.
 \end{enumerate}
 
 \begin{quote}
-To verify that the join has worked, you can open the attribute table of
+To verify if the join has worked, you can open the attribute table of
 the shapefile. To make this change permanent, you need to export the
 layer. After the join, the layer was exported as
 \texttt{stations\_rsqa\_12\_31\_2013.shp}.
@@ -756,7 +756,7 @@ To illustrate the operation of clipping vectors, we will use
   \texttt{limadmin\_clipped.shp}.
 \end{enumerate}
 
-\section{Intersecting vectors}\label{intersecting-vectors}
+\section{Intersecting vectors}\label{IntersectionVectors}
 
 The \textbf{Intersection} algorithm extracts the properties from the
 input layer that overlap features in the overlay layer.
@@ -777,6 +777,35 @@ Intersection layer generated
 }
 
 \caption{Intersection of vectors}\label{fig:unnamed-chunk-21}
+\end{figure}
+
+\section{Check validity and fix
+geometries}\label{check-validity-and-fix-geometries}
+
+In some cases, when clipping and intersecting vectors, errors may arise
+because of invalid geometries. Fortunately, QGIS allows us to check the
+validity of layers, and even more importantly to fix them. The following
+algorithms can be accessed through the \textbf{Processing Toolbox}:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Check validity}: The algorithm performs a validity check on
+  the geometries of a vector layer. The geometries are classified in
+  three groups (valid, invalid and error).
+\item
+  \textbf{Fix geometries}: The algorithm attempts to create a valid
+  representation of an invalid geometry without losing any of the input
+  vertices.
+\end{itemize}
+
+\begin{figure}
+
+{\centering \includegraphics[width=3.94in]{figures/Validity_Fix_Geometry} 
+
+}
+
+\caption{Check validity and fix geometries}\label{fig:unnamed-chunk-22}
 \end{figure}
 
 \chapter{Data exploration}\label{data-exploration}
@@ -812,7 +841,7 @@ attribute table.
 
 }
 
-\caption{List unique values window}\label{fig:unnamed-chunk-22}
+\caption{List unique values window}\label{fig:unnamed-chunk-23}
 \end{figure}
 
 \section{Loading BaseMaps}\label{basemaps}
@@ -834,7 +863,7 @@ Install Plugins}. In the window that has been displayed search
 
 }
 
-\caption{Manage and install plugins in QGIS}\label{fig:unnamed-chunk-23}
+\caption{Manage and install plugins in QGIS}\label{fig:unnamed-chunk-24}
 \end{figure}
 
 To illustrate the use of \textbf{QuickMapServices}, load the
@@ -849,7 +878,289 @@ quality monitoring stations located in Montreal.
 
 }
 
-\caption{Montreal's Air Quality Monitoring Network}\label{fig:unnamed-chunk-24}
+\caption{Montreal's Air Quality Monitoring Network}\label{fig:unnamed-chunk-25}
+\end{figure}
+
+\chapter{Exercises}\label{exercises}
+
+\section{Exercise 1: Determine the area fraction of urban heat islands
+by boroughs of
+Montreal}\label{exercise-1-determine-the-area-fraction-of-urban-heat-islands-by-boroughs-of-montreal}
+
+The aim of this exercise is to generate a
+\href{https://en.wikipedia.org/wiki/Choropleth_map}{choropleth map}
+showing the area fraction of urban heat islands by boroughs of Montreal.
+
+\begin{figure}
+
+{\centering \includegraphics[width=18.1in]{figures/Choropleth_UHI} 
+
+}
+
+\caption{Area fraction of UHI by boroughs}\label{fig:unnamed-chunk-26}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Import \texttt{ilotschaleur.json} and \texttt{limadmim\_clipped.shp}.
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=15.1in]{figures/UHA_Montreal} 
+
+}
+
+\caption{UHI and boroughs of Montreal}\label{fig:unnamed-chunk-27}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  Export \texttt{ilotschaleur.json} as a shapefile and save it as
+  \texttt{ilotschaleur.shp} (Section \ref{saveLayer}).
+\item
+  Intersect the recently created layer \texttt{ilotschaleur.shp} with
+  \texttt{limadmim\_clipped.shp}. Navigate to \textbf{Vector}, select
+  \textbf{Geoprocessing Tools}, and the \textbf{Intersection} (Section
+  \ref{IntersectionVectors}). Set the following parameters:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Input layer}: \texttt{ilotschaleur.shp}
+\item
+  \textbf{Overlay layer}: \texttt{limadmim\_clipped.shp}
+\end{itemize}
+
+The aim is to generate a new layer in which the urban heat islands are
+divided according to Montreal's boroughs.
+
+\begin{figure}
+
+{\centering \includegraphics[width=10.64in]{figures/Intersection_UHA} 
+
+}
+
+\caption{Intersection of layers}\label{fig:unnamed-chunk-28}
+\end{figure}
+
+Click Run to execute the algorithm. However, it will stop since there
+are some invalid geometries in the input layer.
+
+\begin{figure}
+
+{\centering \includegraphics{figures/Intersection_UHA_Error.PNG } 
+
+}
+
+\caption{Error: Intersection of layers}\label{fig:unnamed-chunk-29}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  We will use the \textbf{Fix Geometries} algorithm from the
+  \textbf{Processing Toolbox} to fix the geometries. Run the algorithm
+  according to the following settings.
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=10.46in]{figures/Fix_Geometry_UHA} 
+
+}
+
+\caption{Fix geometries algorithm}\label{fig:unnamed-chunk-30}
+\end{figure}
+
+A temporary layer will be generated after running the algorithm. Right
+click on layer \texttt{Fixed\ geometries} and rename it
+\texttt{ilotschaleur\_fixed}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Run again the \textbf{Intersection} algorithm, but this time use the
+  fixed layer of urban heat islands. Set the following parameters:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Input layer}: \texttt{ilotschaleur\_fixed.shp}
+\item
+  \textbf{Overlay layer}: \texttt{limadmim\_clipped.shp}
+\end{itemize}
+
+\begin{figure}
+
+{\centering \includegraphics[width=10.53in]{figures/Intersection_UHA_Fixed} 
+
+}
+
+\caption{Intersection of layers}\label{fig:unnamed-chunk-31}
+\end{figure}
+
+A temporary layer \texttt{Intersection} will be generated after running
+the algorithm. To verify that the algorithm has properly worked, open
+the attribute table and you will notice that the \texttt{Intersection}
+layer has 584 attributes, whereas the \texttt{ilotschaleur\_fixed} has
+498.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Dissolve the \texttt{Intersection} layer by NOM. The aim is to combine
+  the polygons corresponding to the same borough, which is given by the
+  NOM field. In the \textbf{Dissolve field(s)}, click on the \ldots{}
+  and select NOM.
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=10.6in]{figures/Dissolve_UHA} 
+
+}
+
+\caption{Dissolve Intersection layer by NOM}\label{fig:unnamed-chunk-32}
+\end{figure}
+
+After running the \textbf{Dissolve} algorithm, a temporary layer
+\texttt{Dissolved} will be generated. Open the attribute table of this
+layer and verify that it has 33 attributes; whereas the
+\texttt{Intersection} layer has 584. The task of combining the polygons
+has been accomplished.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  Calculate the area of the urban heat islands by boroughs.
+\end{enumerate}
+
+First of all, we will delete the fields of the \texttt{Dissolved} layer
+that will not be used. Open the attribute table, then click on the
+pencil shown in the left corner (\textbf{Toggle editing mode}) to allow
+editing the attribute table. Click on \textbf{Delete} field and select
+the fields shown in the following figure:
+
+\begin{figure}
+
+{\centering \includegraphics[width=13.75in]{figures/Delete_Fields} 
+
+}
+
+\caption{Delete some fields of Dissolved layer}\label{fig:unnamed-chunk-33}
+\end{figure}
+
+We will now calculate the area of the urban heat islands by borough.
+Click on \textbf{New field}. In the window that will display, select
+\textbf{Create a new field}, indicate \emph{AREA} in the \textbf{Output
+field name}, set \emph{Decimal number (real)} as the \textbf{Output
+field type}. Double click on \emph{\$area} from the center panel.
+
+\begin{figure}
+
+{\centering \includegraphics[width=12.49in]{figures/Calculate_Area} 
+
+}
+
+\caption{Calculate the area of UHI}\label{fig:unnamed-chunk-34}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{7}
+\tightlist
+\item
+  Join the AREA of the urban heat islands (\texttt{Dissolved} layer) to
+  the respective borough in the \texttt{limadmim\_clipped.shp} layer.
+  The prefix \textbf{UHA\_ was} set to distinguish the fields from the
+  joined layer.
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=14.26in]{figures/Join_UHA} 
+
+}
+
+\caption{Join layer Dissolved to limadmim_clipped}\label{fig:unnamed-chunk-35}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{8}
+\tightlist
+\item
+  Calculate the fraction area of urban heat islands (UHI) by boroughs.
+\end{enumerate}
+
+First, calculate the AREA of each borough from the
+\texttt{limadmim\_clipped.shp} layer. Click on \textbf{New field}. In
+the window that will display, select \textbf{Create a new field},
+indicate AREA in the Output field name, set Decimal number (real) as the
+Output field type. Double click on \$area from the center panel.
+
+\begin{figure}
+
+{\centering \includegraphics[width=13.42in]{figures/Calculate_Area_Montreal} 
+
+}
+
+\caption{Calculate the area of Montreal's boroughs}\label{fig:unnamed-chunk-36}
+\end{figure}
+
+Finally, calculate the area fraction of UHI. In the center panel, go to
+\textbf{Fields and Values}, double click to select the involved fields
+in the computation of the new one. In this case, the area fraction is
+given by the expression: FRAC\_UHA = UHA\_AREA/AREA
+
+\begin{quote}
+Note: UHI was misspelled. So UHA stand for UHI.
+\end{quote}
+
+\begin{figure}
+
+{\centering \includegraphics[width=14.1in]{figures/Calculate_Area_Fraction} 
+
+}
+
+\caption{Calculate the area fraction of UHI}\label{fig:unnamed-chunk-37}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{9}
+\tightlist
+\item
+  Style the \texttt{limadmim\_clipped.shp} layer so that it shows the
+  area fraction of UHI in four classes of equal interval.
+\end{enumerate}
+
+Right click on \texttt{limadmim\_clipped.shp}, select
+\textbf{Properties}, then \textbf{Symbology}, and set the parameters
+according to the following figure.
+
+\begin{figure}
+
+{\centering \includegraphics[width=14.17in]{figures/Area_Fraction_UHA} 
+
+}
+
+\caption{Changing the symbology of a layer}\label{fig:unnamed-chunk-38}
 \end{figure}
 
 \chapter{References}\label{references}
