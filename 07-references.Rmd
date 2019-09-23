@@ -1,0 +1,10 @@
+# References
+
+Data | File name | Source
+-----|-----------|-------
+RSQA - liste des stations | coordonnees-stations-rsqa.csv | [Portail données ouvertes Montréal](http://donnees.ville.montreal.qc.ca/dataset/rsqa-liste-des-stations/resource/29db5545-89a4-4e4a-9e95-05aa6dc2fd80)
+RSQA - polluants gazeux 2013-07-01 à 2013-12-31 | pollutants_average_12_31_2019_13H.csv  | [Portail données ouvertes Montréal](http://donnees.ville.montreal.qc.ca/dataset/rsqa-polluants-gazeux/resource/26ddbd0b-47f6-4039-98b2-b32568ed01b1)
+Grands parcs | grandparcs.kml  | [Portail données ouvertes Montréal](http://donnees.ville.montreal.qc.ca/dataset/grands-parcs)
+Îlots de chaleur | ilotschaleur.json  | [Portail données ouvertes Montréal](http://donnees.ville.montreal.qc.ca/dataset/schema-environnement-milieux-naturels/resource/8cd8d34a-cfdd-4acf-a363-d4adaeff18c0)
+Limite administrative de l'agglomération de Montréal (Arrondissement et Ville liée) | LIMADMIN.shp  | [Portail données ouvertes Montréal](http://donnees.ville.montreal.qc.ca/dataset/polygones-arrondissements)
+Limite terrestre | terre.shp  | [Portail données ouvertes Montréal](http://donnees.ville.montreal.qc.ca/dataset/limites-terrestres/resource/674c2a18-e013-42ca-bfa6-3bb7358e820d)
